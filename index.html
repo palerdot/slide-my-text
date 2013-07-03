@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	
+		<title>Slide My Text !</title>
+		
+		<link href="css/main.css" rel="stylesheet" media="screen">
+		
+		<script src = "js/jquery.js"></script>
+		<script src = "js/main.js"></script>
+		
+		<script></script>
+	
+	</head>
+	
+	<body>
+	
+		<div id = "settings"></div>
+		<div id = "error_msg"></div>
+		
+		<!-- START: start of file drop holder -->	
+		
+		<div id = "file_drop_holder">
+		
+			<div id = "file_drop_pane">
+				<div id = "text_file_drop_pane">
+					
+					<div id = "text_file_alert_pane">
+						<span class = "alert-yellow">sorry ! not a text file</span>
+					</div>
+					
+					<div id = "text_file_drop_area"></div>
+					
+					<div id = "text_file_select_area">
+						<span class = "file_select_icon browse_text">Browse text file</span>
+					</div>
+					
+					<div id = "text_file_info_area">good quotes visualizer.txt added</div>
+					
+					<div id = "text_file_options_area"><button class = "btn btn-primary">Reset</button></div>
+					
+				</div>
+				<div id = "pics_drop_pane">
+				
+					<div id = "pics_file_alert_pane">
+						<span class = "alert-yellow">sorry ! not an image file</span>
+					</div>
+					
+					<div id = "pics_file_drop_area"></div>
+					
+					<div id = "pics_file_select_area">
+						<span class = "pics_select_icon browse_text">Browse images</span>
+					</div>
+					
+					<div id = "pics_file_info_area">Image(s) added: 7</div>
+					
+					<div id = "pics_file_options_area"><button class = "btn btn-primary">Reset</button><button class = "btn btn-primary">Preview</button></div>
+					
+				</div>
+			</div>
+			<div id = "create_slide_button_pane">
+				<button class = "btn btn-large btn-primary align-center"> <strong> create slide presentation ! </strong> </button>
+			</div>
+		
+		</div>
+		
+		<!-- END: end of file drop holder -->	
+	
+		<!-- START: start of intro overlay and modal -->	
+	
+		<div id = "intro_overlay" class = "intro_overlay"></div>
+		
+		<div id = "intro_modal" class = "modal fade">
+			
+				<div class="modal-header">
+				    <button type="button" class="close" id = "intro_close">&times;</button>
+				    <h3 id="">Slide My Text !</h3>
+				</div>
+				
+				<div class="modal-body">
+				
+					<div class = "line">
+						<div class = "align-center intro_body_line">
+							<button class = "btn btn-large btn-primary" id = "show_plain_text_button">Plain text file </button>
+							<span class = "intro_modal_text"> to </span>
+							<button class = "btn btn-large btn-primary">Interactive slides </button>
+						</div>
+					</div>
+					
+					<div class = "line">
+						<div class = "align-center intro_body_line">
+							<span class = "intro_modal_text"> Have a look at the </span>
+						</div>
+						<div class = "align-center intro_body_line">
+							<button class = "btn btn-large btn-primary"> How-To Guide </button>
+						</div>
+					</div>
+					
+					<div class = "line">
+						<div class = "align-center intro_body_line">
+							<span class = "intro_modal_text"> or just </span>
+						</div>
+						<div class = "align-center intro_body_line">
+							<button id = "create_slide_message_button" class = "btn btn-large btn-primary"> create interactive slides from plain text files ! </button>
+						</div>
+					</div>
+						
+				</div>
+				<div class="modal-footer">
+				    some footer information
+				</div>
+			
+			</div>
+		
+		<!-- END: end of intro overlay and modal -->	
+		
+		<div id = "show_plain_text">
+			<div class="modal-header">
+				    <button type="button" class="close" id = "plain_text_close">&times;</button>
+				    <h3 id=""> A sample plain text file </h3>
+			</div>
+			<div class="modal-body">some body</div>
+			<div></div>
+		</div>
+	
+	</body>
+
+</html>
