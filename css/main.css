@@ -7,6 +7,58 @@ body {
   background-color: #ffffff;
 }
 
+#slide_show_pane{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 1);
+	opacity: 1;
+	z-index: 1001;
+	display: none;
+}
+
+	#slide_title_holder{
+		position: absolute;
+		top: 2%;
+		left: 5%;
+		width: 90%;
+		height: 10%;
+		overflow: hidden;
+		padding: 15px;
+		border: thin solid #333333;
+		color: white;
+		font-weight: bold;
+		font-size: 42px;
+		text-align: center;
+		line-height: 60px;
+		vertical-align: baseline;
+	}
+	
+	#slide_content_holder{
+		position: absolute;
+		top: 17%;
+		left: 5%;
+		width: 89%;
+		height: 60%;
+		padding: 25px;
+		overflow-y: auto;
+		font-size: 28px;
+		border: thin solid #333333;
+		color: white;
+	}
+	
+	#slide_control_holder{
+		position: absolute;
+		top: 85%;
+		left: 3%;
+		width: 96%;
+		height: 10%;
+		overflow: hidden;
+		border: thin solid #333333;
+	}
+
 #error_msg{
 	display: inline-block;
 	position: absolute;
@@ -23,7 +75,7 @@ body {
 	display: inline-block;
 	position: absolute;
 	top: 10%;
-	left: 5%;
+	left: 6%;
 	width: 35px;
 	height: 35px;
 	border: thin solid #333333;
@@ -258,6 +310,10 @@ body {
 		padding-bottom: 4px;
 	}
 	
+	.options-btn{
+		margin: 0 7px;
+	}
+	
 	
 #show_plain_text{
 
@@ -413,6 +469,11 @@ button.close {
   overflow-y: auto;
 }
 
+	.plain_text_modal_body{
+		height: 375px;
+		overflow-y: auto;
+	}
+
 .modal-footer {
   padding: 14px 15px 15px;
   margin-bottom: 0;
@@ -566,7 +627,7 @@ button.close {
 
 .alert-yellow{
 	display: inline-block;
-	padding: 8px 35px 8px 14px;
+	padding: 8px 20px;
 	color: #cc6600;
      background-color: #FFFFb2;
      border-color: #ffd699;

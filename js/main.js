@@ -19,11 +19,19 @@ $(document).ready(function(){
 	var sptb = $('#show_plain_text_button');
 	var spt = $('#show_plain_text');
 	
+	var cs = $('#create_slide');
+	
+	var ss = $('#slide_show_pane');
+	
 	show_intro_overlay();
 	
 	
 	
 	//event listeners
+	
+	cs.click(function(){
+		ss.fadeIn();
+	});
 	
 	ic.click(function(){
 	

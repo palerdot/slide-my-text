@@ -56,17 +56,26 @@
 					
 					<div id = "pics_file_info_area">Image(s) added: 7</div>
 					
-					<div id = "pics_file_options_area"><button class = "btn btn-primary">Reset</button><button class = "btn btn-primary">Preview</button></div>
+					<div id = "pics_file_options_area"><button class = "btn btn-primary options-btn">Reset</button><button class = "btn btn-primary options-btn">Preview</button></div>
 					
 				</div>
 			</div>
 			<div id = "create_slide_button_pane">
-				<button class = "btn btn-large btn-primary align-center"> <strong> create slide presentation ! </strong> </button>
+				<button class = "btn btn-large btn-primary align-center" id = "create_slide"> <strong> create slide presentation ! </strong> </button>
 			</div>
 		
 		</div>
 		
 		<!-- END: end of file drop holder -->	
+		
+		
+		<div id = "slide_show_pane">
+			<div id = "slide_title_holder">Slide Title !</div>
+			<div id = "slide_content_holder">some slide content</div>
+			<div id = "slide_control_holder">
+				<div id = "control_pane"></div>
+			</div>
+		</div>
 	
 		<!-- START: start of intro overlay and modal -->	
 	
@@ -103,7 +112,7 @@
 							<span class = "intro_modal_text"> or just </span>
 						</div>
 						<div class = "align-center intro_body_line">
-							<button id = "create_slide_message_button" class = "btn btn-large btn-primary"> create interactive slides from plain text files ! </button>
+							<button id = "create_slide_message_button" class = "btn btn-large btn-primary"> create slide presentations from plain text files ! </button>
 						</div>
 					</div>
 						
@@ -121,8 +130,12 @@
 				    <button type="button" class="close" id = "plain_text_close">&times;</button>
 				    <h3 id=""> A sample plain text file </h3>
 			</div>
-			<div class="modal-body">some body</div>
-			<div></div>
+			
+			<div class="modal-body plain_text_modal_body">some body</div>
+			
+			<div class="modal-footer">
+				    click here to see the resulting slide.
+			</div>
 		</div>
 	
 	</body>
