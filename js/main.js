@@ -34,7 +34,9 @@ function App(content){
 	
 	var curr_point = 0;
 	
-	var t = new String(); t = content; t = $.trim(t); var temp_slides = [];
+	var t = new String(); t = content; t = $.trim(t); t.replace(/\r\n/g, "\n"); t = t + '\n';
+	
+	 var temp_slides = [];
 	
 	//total slide count
 	
@@ -42,7 +44,7 @@ function App(content){
 	
 	//regex tools for processing content
 	
-	//var slide_splitter = /(?:\n+(?:\s*))[*|-]{4,}(?:(?:\s*)\n+)/g;
+	//var slide_splitter = /(?:\s*)[*|-]{4,}(?:\s*\n)+/g;
 	
 	var slide_splitter = /(?:\s*)[*|-]{4,}(?:\s*\n)+/g;
 			
@@ -54,12 +56,19 @@ function App(content){
 	var prev_button = $('#prev_button');
 	var next_button = $('#next_button');
 	
+	var first_button = $('#show_first_button');
+	var last_button = $('#show_last_button');
+	
+	var slide_list_body = $('#slide_list_modal_body'); 
+	
 	//App methods
 	
 	this.init = function(){
 		// initializes the app
 		
 		//split the incoming text into slides
+		
+		slide_list_body.html('');
 	
 		temp_slides = t.split(slide_splitter);
 		
@@ -81,16 +90,35 @@ function App(content){
 		
 	};
 	
+	this.get_total_slides = function(){
+	
+		return total_slides;
+	
+	};
+	
 	this.display = function(slide_no){
 		//initial display
 		//displays first slide
 		
-		if(!slide_no){
+		console.log(slide_no + ' ;; ');
+		
+		if(slide_no == 0 || typeof(slide_no) == 'undefined'){
+		
+		console.log('inside default');
+		
+		curr_slide = 0;
 		
 		title_div.text(slides[curr_slide].get_slide_title());
 		content_div.html(slides[curr_slide].get_slide_data());
 		
 		prev_button.addClass('icon_inactive');
+		first_button.addClass('icon_inactive');
+		
+			if(total_slides > 1){
+				next_button.removeClass('icon_inactive');
+				last_button.removeClass('icon_inactive');
+			}
+				
 		
 		}else{
 		
@@ -99,16 +127,22 @@ function App(content){
 			content_div.html(slides[slide_no].get_slide_data());
 			
 			if(slide_no == total_slides - 1){
+				last_button.addClass('icon_inactive');
 				next_button.addClass('icon_inactive');
 				prev_button.removeClass('icon_inactive');
+				first_button.removeClass('icon_inactive');
 				}
 			else if(slide_no == 0){
+				first_button.addClass('icon_inactive');
 				prev_button.addClass('icon_inactive');
 				next_button.removeClass('icon_inactive');
+				last_button.removeClass('icon_inactive');
 				}
 			else{
+				first_button.removeClass('icon_inactive');
 				next_button.removeClass('icon_inactive');
 				prev_button.removeClass('icon_inactive');
+				last_button.removeClass('icon_inactive');
 			}
 		
 		}
@@ -118,16 +152,20 @@ function App(content){
 	this.next = function(){
 		if(curr_slide != total_slides - 1){
 		
-			if(curr_slide == 0)
+			if(curr_slide == 0){
+				first_button.removeClass('icon_inactive');
 				prev_button.removeClass('icon_inactive');
+				}
 		
 			curr_slide++;
 			
 			title_div.text(slides[curr_slide].get_slide_title());
 			content_div.html(slides[curr_slide].get_slide_data());
 			
-			if(curr_slide == total_slides - 1)
+			if(curr_slide == total_slides - 1){
 				next_button.addClass('icon_inactive');
+				last_button.addClass('icon_inactive');
+				}
 	
 		}
 	};
@@ -136,16 +174,20 @@ function App(content){
 	
 		if(curr_slide != 0){
 		
-			if(curr_slide == total_slides - 1)
+			if(curr_slide == total_slides - 1){
 				next_button.removeClass('icon_inactive');
+				last_button.removeClass('icon_inactive');
+				}
 		
 			curr_slide--;
 			
 			title_div.text(slides[curr_slide].get_slide_title());
 			content_div.html(slides[curr_slide].get_slide_data());
 			
-			if(curr_slide == 0)
+			if(curr_slide == 0){
 				prev_button.addClass('icon_inactive');
+				first_button.addClass('icon_inactive');
+				}
 	
 		}
 	
@@ -221,6 +263,8 @@ function App(content){
 		
 		// **********************************************************************************
 		
+				var slide_list_body = $('#slide_list_modal_body'); 
+		
 			for(var i = 0; i < slide_contents.length; i++){
 				
 					//split unwanted whitespace and newlines in the points
@@ -233,7 +277,7 @@ function App(content){
 					var content_span;
 					var slide_list = $('<span class = "btn btn-primary btn-large slide_list_button"></span');
 					slide_list.attr("slide_no", id);
-					var slide_list_body = $('#slide_list_modal_body'); 
+					
 					
 					if(i == 0 && slide_contents[0].match(/^(?:\s*)\*([\w | \s]*)\*(?:\s*)$/)){
 						
@@ -446,6 +490,8 @@ $(document).ready(function(){
 	var stop = $('#stop_button');
 	var prev = $('#prev_button');
 	var next = $('#next_button');
+	var first = $('#show_first_button');
+	var last = $('#show_last_button');
 	var slide_list = $('#slide_list_button');
 	var slide_list_close = $('#slide_list_close');
 	var slm = $('#slide_list_modal');
@@ -499,6 +545,16 @@ $(document).ready(function(){
 	
 	next.click(function(){
 		S.app.next();
+	});
+	
+	first.click(function(){
+		console.log('inside firsst');
+		S.app.display(0);
+	});
+	
+	last.click(function(){
+		var last_slide = S.app.get_total_slides();
+		S.app.display(last_slide - 1);
 	});
 	
 	tfs.addEventListener("click", function(){
