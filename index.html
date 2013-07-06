@@ -28,18 +28,19 @@
 				<div id = "text_file_drop_pane">
 					
 					<div id = "text_file_alert_pane">
-						<span class = "alert-yellow">sorry ! not a text file</span>
+						<span id = "text_file_alert" class = "alert-yellow">sorry ! not a text file</span>
 					</div>
 					
-					<div id = "text_file_drop_area"></div>
+					<div id = "text_file_drop_area"> <span id = "text_file_drop_message"></span> </div>
 					
 					<div id = "text_file_select_area">
-						<span class = "file_select_icon browse_text">Browse text file</span>
+						<span class = "file_select_icon browse_text" id = "text_file_select">Add a text file</span>
+						<input type = "file" id = "text_file" name = "text_file" />
 					</div>
 					
-					<div id = "text_file_info_area">good quotes visualizer.txt added</div>
+					<div id = "text_file_info_area"><span id = "file_name"> No text file </span> added</div>
 					
-					<div id = "text_file_options_area"><button class = "btn btn-primary">Reset</button></div>
+					<div id = "text_file_options_area"><button class = "btn btn-primary">Start with keynote mode</button></div>
 					
 				</div>
 				<div id = "pics_drop_pane">
@@ -51,7 +52,7 @@
 					<div id = "pics_file_drop_area"></div>
 					
 					<div id = "pics_file_select_area">
-						<span class = "pics_select_icon browse_text">Browse images</span>
+						<span class = "pics_select_icon browse_text">Add image(s)</span>
 					</div>
 					
 					<div id = "pics_file_info_area">Image(s) added: 7</div>
@@ -68,18 +69,69 @@
 		
 		<!-- END: end of file drop holder -->	
 		
+		<!-- START: start of slide show pane -->
 		
 		<div id = "slide_show_pane">
+		
 			<div id = "slide_title_holder">Slide Title !</div>
-			<div id = "slide_content_holder">some slide content</div>
-			<div id = "slide_control_holder">
-				<div id = "control_pane"></div>
+			
+			<div id = "slide_content_holder">
+			
+				
+				
 			</div>
+			
+			<div id = "slide_control_holder">
+			
+				<div id = "control_pane">
+					<span class = "control_icon stop_icon" title = "quit slide show" id = "stop_button"></span>
+					<span class = "control_icon pause_icon" title = "pause slide show"></span>
+					<span class = "control_icon play_icon" title = "play slide show"></span>
+					<span class = "control_icon first_slide_icon" title = "show first slide"></span>
+					<span class = "control_icon prev_slide_icon" title = "show previous slide" id = "prev_button"></span>
+					<span class = "control_icon keynote_icon" title = "keynote mode inactive" id = "keynote_button"></span>
+					<span class = "control_icon next_slide_icon" title = "show next slide" id = "next_button"></span>
+					<span class = "control_icon last_slide_icon" title = "show last slide"></span>
+					<span class = "control_icon slide_list_icon" title = "show slide list" id = "slide_list_button"></span>
+					<span class = "control_icon image_list_icon" title = "show images"></span>
+					<span class = "control_icon fullscreen_icon" title = "go full screen" id = "fullscreen_button"></span>
+				</div>	
+				
+			</div>
+			
 		</div>
+		
+		<!-- END: end of slide show pane -->
+		
+		
+		
+		<!-- START: start of slide list overlay and modal -->
+	
+		<div id = "slide_list_overlay" class = "slide_list_overlay"></div>
+		
+		<div id = "slide_list_modal" class = "modal fade">
+		
+			<div class="modal-header">
+				    <button type="button" class="close" id = "slide_list_close">&times;</button>
+				    <h3 id="">Slide List</h3>
+			</div>
+			
+			<div class = "modal-body" id = "slide_list_modal_body"></div>
+			
+			<div class = "modal-footer"> click on the title to view the slide </div>
+		
+		</div>
+		
+		<!-- END: end of slide list overlay and modal -->
+		
+		
+		
 	
 		<!-- START: start of intro overlay and modal -->	
 	
 		<div id = "intro_overlay" class = "intro_overlay"></div>
+		
+		
 		
 		<div id = "intro_modal" class = "modal fade">
 			
@@ -117,6 +169,7 @@
 					</div>
 						
 				</div>
+				
 				<div class="modal-footer">
 				    some footer information
 				</div>
@@ -126,6 +179,7 @@
 		<!-- END: end of intro overlay and modal -->	
 		
 		<div id = "show_plain_text">
+		
 			<div class="modal-header">
 				    <button type="button" class="close" id = "plain_text_close">&times;</button>
 				    <h3 id=""> A sample plain text file </h3>
@@ -136,6 +190,7 @@
 			<div class="modal-footer">
 				    click here to see the resulting slide.
 			</div>
+			
 		</div>
 	
 	</body>

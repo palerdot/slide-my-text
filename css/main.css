@@ -19,6 +19,39 @@ body {
 	display: none;
 }
 
+	#slide_list_overlay{
+	
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 1);
+		opacity: 0.8;
+		z-index: 2001;
+		display: none;
+	
+	}
+	
+	#slide_list_modal{
+		
+		text-align: center;
+		z-index: 2002;
+	
+	}
+	
+		.slide_list_button{
+			display: inline-block;
+			width: 80%;
+			text-align: center;
+			overflow: hidden;
+			margin: 10px 0;
+		}
+
+	.slide{
+		
+	}
+
 	#slide_title_holder{
 		position: absolute;
 		top: 2%;
@@ -49,15 +82,185 @@ body {
 		color: white;
 	}
 	
+		.slide_normal_point{
+			width: 97%;
+			height: auto;
+			overflow: hidden;
+			padding: 10px 5px;
+			border: thin solid grey;
+			line-height: 40px;
+			font-size: 20px;
+			margin: 5px 0;
+		}
+		
+			.slide_point_icon{
+				display: inline-block;
+				width: auto;
+				height: auto;
+				margin: 0 10px;
+				background-color: white;
+			}
+		
+		.slide_bullet_point{
+			position: relative;
+			left: 20%;
+			width: 77%;
+			height: auto;
+			overflow: hidden;
+			padding: 10px 5px;
+			border: thin solid grey;
+			line-height: 40px;
+			font-size: 20px;
+			margin: 5px 0;
+		}
+		
+		.slide_highlight{
+			position: relative;
+			left: 10%;
+			width: 80%;
+			height: auto;
+			overflow: hidden;
+			padding: 20px;
+			border: thin solid grey;
+			border-radius: 15px;
+			line-height: 40px;
+			font-size: 20px;
+			margin: 35px 0;
+			background-color: yellow;
+			color: black;
+		}
+	
 	#slide_control_holder{
 		position: absolute;
 		top: 85%;
 		left: 3%;
 		width: 96%;
-		height: 10%;
+		height: 13%;
 		overflow: hidden;
 		border: thin solid #333333;
+		text-align: center;
 	}
+	
+		#control_pane{
+			position: relative;
+			top: 20%;
+			left: 22%;
+			height: 65%;
+			width: 55%;
+			border: thin solid red;
+			display: none;
+		}
+	
+		
+			.control_icon{
+				display: inline-block;
+				width: 35px;
+				height: 35px;
+				margin: 6px 4px;
+				border: thin solid #333333;
+				cursor: pointer;
+				background-image: url("../icons/icon-home.png");
+				background-position: 4px 4px;
+				background-repeat: no-repeat;
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+					border-radius: 6px;
+				
+				 background-color: yellow;	
+			}
+			
+			.stop_icon{
+				background-image: url("../icons/icon-stop.png");
+				background-position: 11px 11px;
+				background-repeat: no-repeat;
+				background-color: red;
+			}
+			
+			.pause_icon{
+				background-image: url("../icons/icon-pause.png");
+				background-position: 12px 9px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.play_icon{
+				background-image: url("../icons/icon-play.png");
+				background-position: 12px 8px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.first_slide_icon{
+				background-image: url("../icons/icon-rewind.png");
+				background-position: 5px 8px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.prev_slide_icon{
+				background-image: url("../icons/icon-left-arrow.png");
+				background-position: 6px 8px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+				
+			
+			.keynote_icon{
+				background-image: url("../icons/icon-keynote.png");
+				background-position: 8px 2px;
+				background-repeat: no-repeat;
+				background-color: #dedede;
+			}
+			
+				.keynote_active{
+					background-image: url("../icons/icon-keynote.png");
+					background-position: 8px 2px;
+					background-repeat: no-repeat;
+					background-color: green;
+				}
+			
+			.next_slide_icon{
+				background-image: url("../icons/icon-right-arrow.png");
+				background-position: 8px 8px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.last_slide_icon{
+				background-image: url("../icons/icon-forward.png");
+				background-position: 8px 8px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.fullscreen_icon{
+				background-image: url("../icons/icon-fullscreen.png");
+				background-position: 5px 5px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+				
+			
+			.slide_list_icon{
+				background-image: url("../icons/icon-show-thumbnails-with-lines.png");
+				background-position: 5px 10px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+			.image_list_icon{
+				background-image: url("../icons/icon-picture.png");
+				background-position: 5px 7px;
+				background-repeat: no-repeat;
+				background-color: yellow;
+			}
+			
+				.icon_inactive{
+					background-color: #dedede;
+					cursor: text;
+				}
 
 #error_msg{
 	display: inline-block;
@@ -139,6 +342,10 @@ body {
 			border: thin solid green;
 		}
 		
+		#text_file{
+			display: none;
+		}
+		
 			#text_file_alert_pane{
 				position: absolute;
 				top: 0;
@@ -148,7 +355,10 @@ body {
 				overflow: hidden;
 				padding: 7px;
 				text-align: center;
+				display: none;
 			}
+			
+				
 			
 			#text_file_drop_area{
 				position: absolute;
@@ -157,9 +367,23 @@ body {
 				width: 60%;
 				height: 50%;
 				overflow: hidden;
-				border: thick dotted #333333;
+				border: 7px dotted grey;
 				text-align: center;
+				padding: 0;
+				background-color: #dedede;
 			}
+			
+				#text_file_drop_message{
+					display: inline-block;
+					position: absolute;
+					top: 20%;
+					left: 15%;
+					width: 75%;
+					height: 55%;
+					line-height: 2em;
+					font-size: 1.2em;
+					text-align: center;
+				}
 			
 			#text_file_select_area{
 				position: absolute;
@@ -195,6 +419,10 @@ body {
 				border: thin solid grey;
 				overflow: hidden;
 			}
+			
+				#file_name{
+					font-weight: bold;
+				}
 			
 			#text_file_options_area{
 				position : absolute;
@@ -574,7 +802,7 @@ button.close {
 
 .btn.disabled,
 .btn[disabled] {
-  cursor: default;
+  cursor: none;
   background-image: none;
   opacity: 0.65;
   filter: alpha(opacity=65);
