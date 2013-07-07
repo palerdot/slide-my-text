@@ -6,7 +6,8 @@ var S = {
 	app : 0,
 	theme : 0,
 	content : new String(),
-	keynote_mode : false
+	keynote_mode : false,
+	text_file_added : false
 
 };
 
@@ -81,6 +82,7 @@ function App(content){
 					// create new slide objects which contains slide content
 					
 					slides[total_slides] = new Slide(temp_slides[i], total_slides);
+					content_div.append(slides[total_slides].get_slide_data());
 					total_slides++;
 					
 				}
@@ -88,43 +90,94 @@ function App(content){
 			
 		}
 		
+		
+		
+		if(S.keynote_mode){
+			curr_point = 0;
+		}else{
+			curr_point = slides[curr_slide].get_total_points();
+		}
+		
 	};
 	
 	this.get_total_slides = function(){
-	
 		return total_slides;
+	};
+	
+	
+	this.manage_keynote_mode = function(mode){
+	
+		if(mode){
+			
+			//curr_point = slides[curr_slide].get_total_points();
+			
+			
+		}else{
+		
+			//keynote deactivated halfway. show the remaining slides
+			var total = slides[curr_slide].get_total_points();
+			var ts = '#slide_'+curr_slide;
+			var point = '#point_';
+			var cp = curr_point;
+			
+			console.log(total);
+			console.log(cp);
+			
+			if(curr_point < total){
+			
+				for(var i = cp; i < total; i++){
+					point = '#point_'+i;
+					$(ts).children(point).fadeIn();
+					curr_point++;
+				}
+			
+			}else{
+				curr_point = slides[curr_slide].get_total_points();
+			}
+		
+		}
 	
 	};
 	
 	this.display = function(slide_no){
+		
 		//initial display
 		//displays first slide
 		
-		console.log(slide_no + ' ;; ');
+		var ts = '#slide_'+curr_slide;
 		
 		if(slide_no == 0 || typeof(slide_no) == 'undefined'){
 		
-		console.log('inside default');
+			$(ts).hide('fast');
 		
-		curr_slide = 0;
+			curr_slide = 0;
+			
+			ts = '#slide_'+curr_slide;
 		
-		title_div.text(slides[curr_slide].get_slide_title());
-		content_div.html(slides[curr_slide].get_slide_data());
+			title_div.text(slides[curr_slide].get_slide_title());
+			
+			$(ts).delay('300').fadeIn('slow');
 		
-		prev_button.addClass('icon_inactive');
-		first_button.addClass('icon_inactive');
+			prev_button.addClass('icon_inactive');
+			first_button.addClass('icon_inactive');
 		
-			if(total_slides > 1){
-				next_button.removeClass('icon_inactive');
-				last_button.removeClass('icon_inactive');
-			}
+				if(total_slides > 1){
+					next_button.removeClass('icon_inactive');
+					last_button.removeClass('icon_inactive');
+				}
 				
 		
 		}else{
 		
+			$(ts).hide('fast');
+		
 			curr_slide = slide_no;
+			
+			ts = '#slide_'+curr_slide;
+			
 			title_div.text(slides[slide_no].get_slide_title());
-			content_div.html(slides[slide_no].get_slide_data());
+			
+			$(ts).delay('300').fadeIn('slow');
 			
 			if(slide_no == total_slides - 1){
 				last_button.addClass('icon_inactive');
@@ -150,45 +203,169 @@ function App(content){
 	};
 	
 	this.next = function(){
-		if(curr_slide != total_slides - 1){
-		
-			if(curr_slide == 0){
-				first_button.removeClass('icon_inactive');
-				prev_button.removeClass('icon_inactive');
-				}
-		
-			curr_slide++;
-			
-			title_div.text(slides[curr_slide].get_slide_title());
-			content_div.html(slides[curr_slide].get_slide_data());
-			
-			if(curr_slide == total_slides - 1){
-				next_button.addClass('icon_inactive');
-				last_button.addClass('icon_inactive');
-				}
 	
+	var ts = '#slide_'+curr_slide;
+	
+		if(!S.keynote_mode){
+	
+			if(curr_slide != total_slides - 1){
+		
+				if(curr_slide == 0){
+					first_button.removeClass('icon_inactive');
+					prev_button.removeClass('icon_inactive');
+					}
+				
+				$(ts).hide('fast');	
+		
+				curr_slide++;
+				
+				ts = '#slide_'+curr_slide;
+			
+				title_div.text(slides[curr_slide].get_slide_title());
+				
+				$(ts).delay('300').fadeIn('slow');
+			
+				if(curr_slide == total_slides - 1){
+					next_button.addClass('icon_inactive');
+					last_button.addClass('icon_inactive');
+					}
+	
+			}
+		
+		}else{
+		
+				if(curr_point == slides[curr_slide].get_total_points() && curr_slide != total_slides - 1){
+				
+					//end of this slide . . . have to move to next slide
+					
+					$(ts).hide('fast');
+					
+					if(curr_slide == 0){
+						first_button.removeClass('icon_inactive');
+						prev_button.removeClass('icon_inactive');
+					}
+					
+					curr_slide++;
+					
+					ts = '#slide_'+curr_slide;
+					
+					$(ts).children('.point').hide();
+					
+					curr_point = 0;
+					
+					title_div.text(slides[curr_slide].get_slide_title());
+					
+					$(ts).delay('300').fadeIn();
+					
+					var point = '#point_'+curr_point;
+					
+					$(ts).children(point).fadeIn();
+					
+					//$(point).fadeIn();
+					
+					curr_point++;
+					
+					if(curr_slide == total_slides - 1 && curr_point == slides[curr_slide].get_total_points()){
+						next_button.addClass('icon_inactive');
+						last_button.addClass('icon_inactive');
+					}
+					
+					
+					//slide moved to next
+				
+				}else{
+				
+					ts = '#slide_'+curr_slide;
+
+					//have to display the corresponding point
+					var point = '#point_'+curr_point;
+					
+					console.log(point);
+					
+					$(ts).children(point).fadeIn();
+					
+					curr_point++;
+					
+					if(curr_slide == total_slides - 1 && curr_point == slides[curr_slide].get_total_points()){
+						next_button.addClass('icon_inactive');
+						last_button.addClass('icon_inactive');
+					}
+				
+				}
+		
+		
 		}
 	};
 	
 	this.prev = function(){
 	
-		if(curr_slide != 0){
-		
-			if(curr_slide == total_slides - 1){
-				next_button.removeClass('icon_inactive');
-				last_button.removeClass('icon_inactive');
-				}
-		
-			curr_slide--;
-			
-			title_div.text(slides[curr_slide].get_slide_title());
-			content_div.html(slides[curr_slide].get_slide_data());
-			
-			if(curr_slide == 0){
-				prev_button.addClass('icon_inactive');
-				first_button.addClass('icon_inactive');
-				}
+	var ts = '#slide_'+curr_slide;
 	
+	//var curr_point;
+	
+		if(!S.keynote_mode){
+	
+			if(curr_slide != 0){
+		
+				if(curr_slide == total_slides - 1){
+					next_button.removeClass('icon_inactive');
+					last_button.removeClass('icon_inactive');
+					}
+					
+				$(ts).hide('fast');	
+		
+				curr_slide--;
+				
+				ts = '#slide_'+curr_slide;
+				
+				$(ts).delay('300').fadeIn('slow');
+			
+				title_div.text(slides[curr_slide].get_slide_title());
+			
+				if(curr_slide == 0){
+					prev_button.addClass('icon_inactive');
+					first_button.addClass('icon_inactive');
+					}
+	
+			}
+		
+		}else{
+		
+			//just show the first point of previous slide
+			
+			if(curr_slide != 0){
+			
+			
+					if(curr_slide == total_slides - 1){
+							next_button.removeClass('icon_inactive');
+							last_button.removeClass('icon_inactive');
+					}
+					
+					$(ts).hide('fast');
+			
+					curr_slide--;
+					
+					ts = '#slide_'+curr_slide;
+					
+					$(ts).children('.point').hide(); $(ts).show();
+			
+					if(curr_slide == 0){
+							prev_button.addClass('icon_inactive');
+							first_button.addClass('icon_inactive');
+					}
+			
+					curr_point = 0;
+					
+					title_div.text(slides[curr_slide].get_slide_title());
+							
+					var point = '#point_'+curr_point;
+					
+					$(ts).children(point).fadeIn('slow');
+					
+					curr_point++;
+					
+			}		
+		
 		}
 	
 	};
@@ -229,16 +406,11 @@ function App(content){
 			return this.curr_point;
 		};
 		
-		//setter for current active point
-		
-		this.set_curr_point = function(point){
-			this.curr_point = point;
-		};
 		
 		// getter for total points
 		
 		this.get_total_points = function(){
-			return this.total_points;
+			return curr_point;
 		};
 		
 		this.get_slide_title = function(){
@@ -250,6 +422,8 @@ function App(content){
 		};
 		
 		content = $.trim(content);
+		
+		content = content + '\n';
 		
 		//now split the slides into points seperated by empty new line
 			
@@ -298,10 +472,12 @@ function App(content){
 						slide_contents[i] = $.trim(slide_contents[i].match(/^(?:\s*)-(?:\s*)([\w | \s]*)$/)[1]);
 						
 						points[curr_point] = $('<div></div>');
-						points[curr_point].addClass('slide_bullet_point');
+						points[curr_point].attr("id", 'point_'+curr_point);
+						points[curr_point].addClass('slide_bullet_point point');
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-bullets.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
+						points[curr_point].append('<div class = "ruler"></div>');
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
@@ -315,8 +491,10 @@ function App(content){
 						slide_contents[i] = $.trim(slide_contents[i].match(/^(?:\s*)--(?:\s*)([\w | \s]*)$/)[1]);
 						
 						points[curr_point] = $('<div></div>');
-						points[curr_point].addClass('slide_highlight');
+						points[curr_point].attr("id", 'point_'+curr_point);
+						points[curr_point].addClass('slide_highlight point');
 						points[curr_point].text(slide_contents[i]);
+						points[curr_point].append('<div class = "ruler"></div>');
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
@@ -329,10 +507,12 @@ function App(content){
 						
 						
 						points[curr_point] = $('<div></div>');
-						points[curr_point].addClass('slide_normal_point');
+						points[curr_point].attr("id", 'point_'+curr_point);
+						points[curr_point].addClass('slide_normal_point point');
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-snowflake.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
+						points[curr_point].append('<div class = "ruler"></div>');
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
@@ -360,12 +540,14 @@ function copy_file_contents(evt){
 	var t_alert_pane = $("#text_file_alert_pane");
 	var t_alert = $("#text_file_alert");
 	var fn = $("#file_name");
+	var error_div = $('#error_msg');
 	
 	var f = files[0];
 	
 	if(f.type == 'text/plain'){
 		readBlob(f);
 		fn.text(f.name);
+		error_div.html('');
 		t_alert_pane.hide();
 	}else{
 		t_alert.html('This is not a text file');
@@ -378,6 +560,8 @@ function copy_file_contents(evt){
 }
 
 function readBlob(file){
+
+	S.text_file_added = true;
 
 	var reader = new FileReader();
 	
@@ -424,6 +608,7 @@ function drop(e) {
   	var t_alert_pane = $("#text_file_alert_pane");
 	var t_alert = $("#text_file_alert");
 	var fn = $("#file_name");
+	var error_div = $('#error_msg');
 	
 	if(files.length == 1){
 	
@@ -435,6 +620,7 @@ function drop(e) {
 			readBlob(f);
 			fn.text(f.name);
 			t_alert_pane.hide();
+			error_div.html('');
 		}else{
 			t_alert.html('This is not a text file');
 			fn.text("No text file");
@@ -499,6 +685,9 @@ $(document).ready(function(){
 	
 	var slb = $('span.slide_list_button');
 	
+	var error_div = $('#error_msg');
+	var error_span = $('<span class = "alert-yellow"></span>');
+	
 	//end of variables
 	
 	// *****************************************************************
@@ -532,6 +721,8 @@ $(document).ready(function(){
 			kn.attr("title", "keynote mode activated");
 			kn.addClass('keynote_active');
 		}
+		
+		S.app.manage_keynote_mode(S.keynote_mode);
 	
 	});
 	
@@ -548,7 +739,6 @@ $(document).ready(function(){
 	});
 	
 	first.click(function(){
-		console.log('inside firsst');
 		S.app.display(0);
 	});
 	
@@ -574,20 +764,28 @@ $(document).ready(function(){
 	
 		//initialize app
 		
-		$(this).addClass('disabled');
+		if(S.text_file_added){
 		
-		var text_file_contents = new String();
-		text_file_contents = S.content;
+			$(this).addClass('disabled');
+		
+			var text_file_contents = new String();
+			text_file_contents = S.content;
 		
 		
 		
-		S.app = new App(text_file_contents);
-		S.app.init();
-		S.app.display();
+			S.app = new App(text_file_contents);
+			S.app.init();
+			S.app.display();
 		
-		ss.fadeIn();
+			ss.fadeIn();
 		
-		$(this).removeClass('disabled');
+			$(this).removeClass('disabled');
+		
+		}else{
+			console.log('no text file added');
+			error_span.text("No text file added");
+			error_div.append(error_span);
+		}
 		
 	});
 	

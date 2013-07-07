@@ -49,7 +49,7 @@ body {
 		}
 
 	.slide{
-		
+		display: none;
 	}
 
 	#slide_title_holder{
@@ -128,6 +128,15 @@ body {
 			margin: 35px 0;
 			background-color: yellow;
 			color: black;
+		}
+		
+		.point{
+			
+		}
+		
+		.ruler{
+			height: 25px;
+			border: thin solid green;
 		}
 	
 	#slide_control_holder{
@@ -272,6 +281,7 @@ body {
 	overflow: hidden: 
 	padding: 7px;
 	border: thin solid #333333;
+	text-align: center;
 }
 
 #settings{
