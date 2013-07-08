@@ -306,10 +306,10 @@ body {
 			  
 			width: 50%;
 			height: 70%;
-			  -webkit-transition: opacity 0.3s linear, top 0.7s ease-out;
-				-moz-transition: opacity 0.3s linear, top 0.7s ease-out;
-				  -o-transition: opacity 0.3s linear, top 0.7s ease-out;
-					transition: opacity 0.3s linear, top 0.7s ease-out;
+			  -webkit-transition: opacity 0.3s linear, top 0.4s ease-out;
+				-moz-transition: opacity 0.3s linear, top 0.4s ease-out;
+				  -o-transition: opacity 0.3s linear, top 0.4s ease-out;
+					transition: opacity 0.3s linear, top 0.4s ease-out;
 		}
 		
 		.i_t_holder{
@@ -320,10 +320,10 @@ body {
 				width: 20%;
 				height: 50%;
 				
-			  -webkit-transition: opacity 0.3s linear, left 0.7s ease-out;
-				-moz-transition: opacity 0.3s linear, left 0.7s ease-out;
-				  -o-transition: opacity 0.3s linear, left 0.7s ease-out;
-					transition: opacity 0.3s linear, left 0.7s ease-out;
+			  -webkit-transition: opacity 0.3s linear, left 0.5s ease-out;
+				-moz-transition: opacity 0.3s linear, left 0.5s ease-out;
+				  -o-transition: opacity 0.3s linear, left 0.5s ease-out;
+					transition: opacity 0.3s linear, left 0.5s ease-out;
 		}
 		
 			.i_slider{
@@ -367,7 +367,7 @@ body {
 		
 		#image_list_close{
 			position: fixed;
-			top: 5%;
+			top: 3%;
 			left: 73%;
 			-webkit-border-radius: 6px;
 			-moz-border-radius: 6px;
@@ -753,13 +753,12 @@ button.close {
 
 	.image_close{
 		float: none;
-		font-size: 44px;
+		font-size: 40px;
 		font-weight: bold;
-		line-height: 20px;
 		color: #ffffff;
-		opacity: 0.8;
+		opacity: 1;
 		filter: alpha(opacity=80);
-		
+		overflow: hidden;
 		padding: 0;
 		cursor: pointer;
 		background: transparent;
@@ -769,7 +768,7 @@ button.close {
 	}
 	
 	.image_close:hover{
-		opacity: 0.5;
+		opacity: 0.7;
 	}
 
 .modal {
