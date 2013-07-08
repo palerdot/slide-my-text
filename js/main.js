@@ -328,7 +328,7 @@ function App(content){
 					
 					$(ts).children(point).fadeIn();
 					
-					console.log($(point).position().top);
+					//console.log($(point).position().top);
 					
 					var scroll_to = $(point).position().top + content_div.scrollTop(); var height = $(point).height();
 					
