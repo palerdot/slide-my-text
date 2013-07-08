@@ -128,10 +128,11 @@ body {
 			margin: 35px 0;
 			background-color: yellow;
 			color: black;
+			text-align: center;
 		}
 		
 		.point{
-			
+			margin: 10px 0;
 		}
 		
 		.ruler{

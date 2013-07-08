@@ -110,6 +110,8 @@ function App(content){
 		if(mode){
 			
 			//curr_point = slides[curr_slide].get_total_points();
+			if(curr_point == slides[curr_slide].get_total_points()-1)
+				curr_point++;
 			
 			
 		}else{
@@ -153,10 +155,32 @@ function App(content){
 			curr_slide = 0;
 			
 			ts = '#slide_'+curr_slide;
-		
-			title_div.text(slides[curr_slide].get_slide_title());
 			
-			$(ts).delay('300').fadeIn('slow');
+			if(!S.keynote_mode){
+			
+				title_div.text(slides[curr_slide].get_slide_title());
+			
+				$(ts).fadeIn('slow');
+			
+			}else{
+			
+				//display just the first point
+				
+				$(ts).children('.point').hide(); $(ts).show();
+				
+				curr_point = 0;
+					
+				title_div.text(slides[curr_slide].get_slide_title());
+							
+				var point = '#point_'+curr_point;
+					
+				$(ts).children(point).fadeIn('slow');
+					
+				curr_point++;
+				
+			}
+		
+			
 		
 			prev_button.addClass('icon_inactive');
 			first_button.addClass('icon_inactive');
@@ -175,9 +199,29 @@ function App(content){
 			
 			ts = '#slide_'+curr_slide;
 			
-			title_div.text(slides[slide_no].get_slide_title());
 			
-			$(ts).delay('300').fadeIn('slow');
+			if(!S.keynote_mode){
+			
+				title_div.text(slides[slide_no].get_slide_title());
+			
+				$(ts).fadeIn('slow');
+			
+			}else{
+			
+				//display just the first point
+				
+				$(ts).children('.point').hide(); $(ts).show();
+				
+				curr_point = 0;
+					
+				title_div.text(slides[curr_slide].get_slide_title());
+							
+				var point = '#point_'+curr_point;
+					
+				$(ts).children(point).fadeIn('slow');
+					
+				curr_point++;
+			}
 			
 			if(slide_no == total_slides - 1){
 				last_button.addClass('icon_inactive');
@@ -280,9 +324,16 @@ function App(content){
 					//have to display the corresponding point
 					var point = '#point_'+curr_point;
 					
-					console.log(point);
+					var ruler = '#ruler_'+curr_point;
 					
 					$(ts).children(point).fadeIn();
+					
+					console.log($(point).position().top);
+					
+					var scroll_to = $(point).position().top + content_div.scrollTop(); var height = $(point).height();
+					
+					if(scroll_to > 0)
+						content_div.animate({scrollTop: scroll_to + height + '50'});
 					
 					curr_point++;
 					
@@ -477,7 +528,15 @@ function App(content){
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-bullets.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
-						points[curr_point].append('<div class = "ruler"></div>');
+						
+						//var ruler = $('<div class = "ruler"></div>');
+						//var ruler_id = '#ruler_'+curr_point;
+						//ruler.attr("id", ruler_id);
+						
+						//points[curr_point].append(ruler);
+						
+						
+						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
@@ -494,7 +553,15 @@ function App(content){
 						points[curr_point].attr("id", 'point_'+curr_point);
 						points[curr_point].addClass('slide_highlight point');
 						points[curr_point].text(slide_contents[i]);
-						points[curr_point].append('<div class = "ruler"></div>');
+						
+						
+						//var ruler = $('<div class = "ruler"></div>');
+						//var ruler_id = '#ruler_'+curr_point;
+						//ruler.attr("id", ruler_id);
+						
+						//points[curr_point].append(ruler);
+						
+						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
@@ -512,7 +579,14 @@ function App(content){
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-snowflake.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
-						points[curr_point].append('<div class = "ruler"></div>');
+						
+						//var ruler = $('<div class = "ruler"></div>');
+						//var ruler_id = '#ruler_'+curr_point;
+						//ruler.attr("id", ruler_id);
+						
+						//points[curr_point].append(ruler);
+						
+						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
 						curr_point++;
