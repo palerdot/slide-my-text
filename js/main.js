@@ -764,6 +764,8 @@ $(document).ready(function(){
 	var i_holder = $('#image_holder');
 	var i_t_holder = $('#image_thumbnail_holder');
 	
+	var i_slider = $('#i_slider');
+	
 	var slb = $('span.slide_list_button');
 	
 	var error_div = $('#error_msg');
@@ -791,6 +793,10 @@ $(document).ready(function(){
 		i_holder.removeClass('i_in').fadeOut('slow');
 		i_t_holder.removeClass('i_in').fadeOut('slow');
 		ilo.fadeOut();
+	});
+	
+	i_slider.click(function(){
+		i_t_holder.removeClass('i_in');
 	});
 	
 	slm.on('click', 'span.slide_list_button', function(){

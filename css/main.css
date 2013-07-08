@@ -315,7 +315,7 @@ body {
 		.i_t_holder{
 				position: fixed;
 				top: 20%;
-				left: -75%;
+				left: -16%;
 				  
 				width: 20%;
 				height: 50%;
@@ -325,6 +325,37 @@ body {
 				  -o-transition: opacity 0.3s linear, left 0.7s ease-out;
 					transition: opacity 0.3s linear, left 0.7s ease-out;
 		}
+		
+			.i_slider{
+				float: right;
+				position: absolute;
+				top: 50%;
+				left: 85%;
+				width: 13%;
+				height: 10%;
+				background-color: white;
+				
+				background-image: url("../icons/icon-hand-left.png");
+				background-position: 5px 5px;
+				background-repeat: no-repeat;
+				
+			}
+			
+			.i_slider_out{
+				background-image: url("../icons/icon-hand-right.png");
+				background-position: 5px 5px;
+				background-repeat: no-repeat;
+			}
+			
+			#thumbnail_div{
+				float: left;
+				position: absolute;
+				top: 5%;
+				width: 80%;
+				height: 90%;
+				border: thin solid yellow;
+				
+			}
 		
 		.i_holder.i_in{
 			top: 10%;
@@ -338,6 +369,10 @@ body {
 			position: fixed;
 			top: 5%;
 			left: 73%;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+				border-radius: 6px;
+			overflow-y: auto;
 		}
 
 
