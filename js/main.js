@@ -327,8 +327,6 @@ function App(content){
 					//have to display the corresponding point
 					var point = '#point_'+curr_point;
 					
-					var ruler = '#ruler_'+curr_point;
-					
 					$(ts).children(point).fadeIn('slow');
 					
 					//console.log($(point).position().top);
