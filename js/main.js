@@ -160,7 +160,7 @@ function App(content){
 			
 				title_div.text(slides[curr_slide].get_slide_title());
 			
-				$(ts).fadeIn('slow');
+				$(ts).delay('300').fadeIn('slow');
 			
 			}else{
 			
@@ -204,7 +204,7 @@ function App(content){
 			
 				title_div.text(slides[slide_no].get_slide_title());
 			
-				$(ts).fadeIn('slow');
+				$(ts).delay('300').fadeIn('slow');
 			
 			}else{
 			
@@ -267,6 +267,9 @@ function App(content){
 			
 				title_div.text(slides[curr_slide].get_slide_title());
 				
+				//make all the points visible in case they are partially visible
+				$(ts).children('.point').show();
+				
 				$(ts).delay('300').fadeIn('slow');
 			
 				if(curr_slide == total_slides - 1){
@@ -299,11 +302,11 @@ function App(content){
 					
 					title_div.text(slides[curr_slide].get_slide_title());
 					
-					$(ts).delay('300').fadeIn();
+					$(ts).delay('300').fadeIn('slow');
 					
 					var point = '#point_'+curr_point;
 					
-					$(ts).children(point).fadeIn();
+					$(ts).children(point).fadeIn('slow');
 					
 					//$(point).fadeIn();
 					
@@ -326,7 +329,7 @@ function App(content){
 					
 					var ruler = '#ruler_'+curr_point;
 					
-					$(ts).children(point).fadeIn();
+					$(ts).children(point).fadeIn('slow');
 					
 					//console.log($(point).position().top);
 					
