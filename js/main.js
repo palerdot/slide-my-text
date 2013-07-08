@@ -759,7 +759,10 @@ $(document).ready(function(){
 	
 	var ilo = $('#image_list_overlay');
 	var i_list_button = $('#show_images_button');
-	//var i_list_close = 
+	var i_close = $('#image_list_close');
+	
+	var i_holder = $('#image_holder');
+	var i_t_holder = $('#image_thumbnail_holder');
 	
 	var slb = $('span.slide_list_button');
 	
@@ -780,6 +783,14 @@ $(document).ready(function(){
 	
 	i_list_button.click(function(){
 		ilo.fadeIn();
+		i_holder.fadeIn().addClass('i_in');
+		i_t_holder.fadeIn().addClass('i_in');
+	});
+	
+	i_close.click(function(){
+		i_holder.removeClass('i_in').fadeOut('slow');
+		i_t_holder.removeClass('i_in').fadeOut('slow');
+		ilo.fadeOut();
 	});
 	
 	slm.on('click', 'span.slide_list_button', function(){
