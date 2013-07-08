@@ -757,6 +757,10 @@ $(document).ready(function(){
 	var slm = $('#slide_list_modal');
 	var slo = $('#slide_list_overlay');
 	
+	var ilo = $('#image_list_overlay');
+	var i_list_button = $('#show_images_button');
+	//var i_list_close = 
+	
 	var slb = $('span.slide_list_button');
 	
 	var error_div = $('#error_msg');
@@ -773,6 +777,10 @@ $(document).ready(function(){
 	// *****************************************************************
 	
 	//start of event listeners
+	
+	i_list_button.click(function(){
+		ilo.fadeIn();
+	});
 	
 	slm.on('click', 'span.slide_list_button', function(){
 	
