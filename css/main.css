@@ -290,6 +290,7 @@ body {
 		#image_holder{
 			z-index: 5002;
 			display: none;
+			overflow: hidden;
 			border: thin solid green;
 		}
 		
@@ -305,46 +306,63 @@ body {
 			left: 25%;
 			  
 			width: 50%;
-			height: 70%;
-			  -webkit-transition: opacity 0.3s linear, top 0.4s ease-out;
-				-moz-transition: opacity 0.3s linear, top 0.4s ease-out;
-				  -o-transition: opacity 0.3s linear, top 0.4s ease-out;
-					transition: opacity 0.3s linear, top 0.4s ease-out;
+			height: 80%;
+			  -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
+				-moz-transition: opacity 0.3s linear, top 0.3s ease-out;
+				  -o-transition: opacity 0.3s linear, top 0.3s ease-out;
+					transition: opacity 0.3s linear, top 0.3s ease-out;
 		}
 		
 		.i_t_holder{
 				position: fixed;
-				top: 20%;
-				left: -16%;
+				top: 15%;
+				left: -17%;
 				  
 				width: 20%;
-				height: 50%;
+				height: 57%;
 				
-			  -webkit-transition: opacity 0.3s linear, left 0.5s ease-out;
-				-moz-transition: opacity 0.3s linear, left 0.5s ease-out;
-				  -o-transition: opacity 0.3s linear, left 0.5s ease-out;
-					transition: opacity 0.3s linear, left 0.5s ease-out;
+			  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+				-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+				  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+					transition: opacity 0.3s linear, left 0.3s ease-out;
 		}
 		
 			.i_slider{
 				float: right;
 				position: absolute;
-				top: 50%;
+				top: 48%;
 				left: 85%;
 				width: 13%;
-				height: 10%;
+				height: 8%;
 				background-color: white;
 				
+				-webkit-border-radius: 2px;
+				-moz-border-radius: 2px;
+					border-radius: 2px;
+				
+			}
+			
+			 .i_slider span{
+			 	width: 90%; height: 90%;
+				display: inline-block;
+			 }
+			
+			#i_slider_out{
 				background-image: url("../icons/icon-hand-left.png");
 				background-position: 5px 5px;
 				background-repeat: no-repeat;
 				
+				
+				
 			}
 			
-			.i_slider_out{
+			
+			#i_slider_in{
 				background-image: url("../icons/icon-hand-right.png");
 				background-position: 5px 5px;
 				background-repeat: no-repeat;
+				
+				display: hidden;
 			}
 			
 			#thumbnail_div{
@@ -354,6 +372,24 @@ body {
 				width: 80%;
 				height: 90%;
 				border: thin solid yellow;
+				
+				background-color: rgba(255, 255, 255, 0.5);
+			  	border: 1px solid #999;
+			  	border: 1px solid rgba(0, 0, 0, 0.3);
+			  	*border: 1px solid #999;
+			  	
+			  	-webkit-border-radius: 7px;
+				-moz-border-radius: 7px;
+					border-radius: 7px;
+					
+			  	outline: none;
+			  	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+					box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+			  	-webkit-background-clip: padding-box;
+				-moz-background-clip: padding-box;
+					background-clip: padding-box;
+				
 				
 			}
 		
@@ -365,14 +401,23 @@ body {
 			left: 2%;
 		}
 		
+			.thumb{
+				width: 70%;
+				height: 30%;
+				margin: 5%;
+				display: block;
+			}
+			
+			.img{
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+			}
+		
 		#image_list_close{
 			position: fixed;
 			top: 3%;
 			left: 73%;
-			-webkit-border-radius: 6px;
-			-moz-border-radius: 6px;
-				border-radius: 6px;
-			overflow-y: auto;
 		}
 
 
@@ -457,7 +502,7 @@ body {
 			border: thin solid green;
 		}
 		
-		#text_file{
+		#text_file, #image_files{
 			display: none;
 		}
 		
@@ -753,10 +798,10 @@ button.close {
 
 	.image_close{
 		float: none;
-		font-size: 40px;
+		font-size: 44px;
 		font-weight: bold;
 		color: #ffffff;
-		opacity: 1;
+		opacity: 0.4;
 		filter: alpha(opacity=80);
 		overflow: hidden;
 		padding: 0;
@@ -768,7 +813,7 @@ button.close {
 	}
 	
 	.image_close:hover{
-		opacity: 0.7;
+		opacity: 0.9;
 	}
 
 .modal {

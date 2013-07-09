@@ -52,12 +52,13 @@
 					<div id = "pics_file_drop_area"></div>
 					
 					<div id = "pics_file_select_area">
-						<span class = "pics_select_icon browse_text">Add image(s)</span>
+						<span class = "pics_select_icon browse_text" id = "images_select">Add image(s)</span>
+						<input type = "file" id = "image_files" name = "image_files" multiple />
 					</div>
 					
-					<div id = "pics_file_info_area">Image(s) added: 7</div>
+					<div id = "pics_file_info_area">Image(s) added: 0</div>
 					
-					<div id = "pics_file_options_area"><button class = "btn btn-primary options-btn">Reset</button><button class = "btn btn-primary options-btn">Preview</button></div>
+					<div id = "pics_file_options_area"><button class = "btn btn-primary options-btn">Reset</button><button class = "btn btn-primary options-btn" id = "images_preview">Preview</button></div>
 					
 				</div>
 			</div>
@@ -111,7 +112,7 @@
 			</div>
 		
 			<div id = "image_thumbnail_holder" class = "i_t_holder" >
-				<div class = "i_slider i_slider_out" id = "i_slider"></div>
+				<div class = "i_slider" id = "i_slider"><span id = "i_slider_out"></span><span id = "i_slider_in"></span></div>
 				<div id = "thumbnail_div"></div>
 			</div>
 		
