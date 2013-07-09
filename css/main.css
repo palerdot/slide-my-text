@@ -421,6 +421,67 @@ body {
 			top: 3%;
 			left: 73%;
 		}
+		
+		#image_name{
+			position: absolute;
+			top: 5%;
+			left: 35%;
+			width: 30%;
+			height: 3%;
+			overflow: hidden;
+			text-align: center;
+			color: white;
+		}
+		
+		#image_prev{
+			position: absolute;
+			top: 92%;
+			left: 46%;
+			
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			background-image: url("../icons/icon-chevron-left.png");
+			background-position: 7px 6px;
+			background-repeat: no-repeat;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+				border-radius: 6px;
+				
+		}
+		
+		#image_next{
+			position: absolute;
+			top: 92%;
+			left: 51%;
+			
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+
+			background-image: url("../icons/icon-chevron-right.png");
+			background-position: 11px 6px;
+			background-repeat: no-repeat;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+				border-radius: 6px;
+				
+			
+				
+			
+		}
+		
+		.active{
+			background-color: green;
+			cursor: pointer;
+		}
+		
+		.inactive{
+			background-color: #dedede;
+					cursor: text;
+		}
+		
+		
 
 
 #error_msg{
@@ -619,6 +680,10 @@ body {
 				text-align: center;
 			}
 			
+				#pics_file_alert_pane span{
+					display: none;
+				}
+			
 			#pics_file_drop_area{
 				position: absolute;
 				top: 15%;
@@ -668,6 +733,10 @@ body {
 				border: thin solid grey;
 				overflow: hidden;
 			}
+			
+				#image_count{
+					font-weight: bold;
+				}
 			
 			#pics_file_options_area{
 				position : absolute;
