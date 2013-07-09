@@ -616,6 +616,9 @@ function App(content){
 function Img(file, id){
 
 	window.URL = window.URL || window.webkitURL;
+	
+	var t_body = $('#thumbnail_div_body');
+	var i_body = $('#image_holder');
 
 	var thumb = $('<img></img>');
 	thumb.addClass('thumb');
@@ -630,13 +633,9 @@ function Img(file, id){
 	thumb.attr("src", window.URL.createObjectURL(file));
 	img.attr("src", window.URL.createObjectURL(file));
 	
-	//var div = $('<div></div>');
-	//div.attr("id", img_id);
-	//div.append(img);
-	
-	$('#thumbnail_div').append(thumb);
-	
-	$('#image_holder').append(img);
+	t_body.append(thumb);
+
+	i_body.append(img);
 	img.hide();
 	
 	
@@ -878,11 +877,14 @@ $(document).ready(function(){
 	});
 	
 	ip.click(function(){
+	
 		ilo.fadeIn();
 		i_holder.fadeIn().addClass('i_in');
 		i_t_holder.fadeIn().addClass('i_in');
 		
-		$('#img_0').show();
+		var img = '#img_'+S.curr_image;
+		$(img).fadeIn();
+		
 		
 	});
 	
@@ -910,6 +912,17 @@ $(document).ready(function(){
 			i_t_holder.addClass('i_in');
 			i_s_in.hide(); i_s_out.show();
 		}
+		
+	});
+	
+	i_t_holder.on('click', 'img.thumb', function(){
+		var thumb_id = $(this).attr("thumb");
+		
+		var img = '#img_'+S.curr_image;
+		$(img).hide();
+		img = '#img_'+thumb_id;
+		S.curr_image = thumb_id;
+		$(img).fadeIn('slow');
 		
 	});
 	

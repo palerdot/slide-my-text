@@ -291,13 +291,11 @@ body {
 			z-index: 5002;
 			display: none;
 			overflow: hidden;
-			border: thin solid green;
 		}
 		
 		#image_thumbnail_holder{
 			z-index: 5003;
 			display: none;
-			border: thin solid yellow;
 		}
 	
 		.i_holder{
@@ -307,10 +305,10 @@ body {
 			  
 			width: 50%;
 			height: 80%;
-			  -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
-				-moz-transition: opacity 0.3s linear, top 0.3s ease-out;
-				  -o-transition: opacity 0.3s linear, top 0.3s ease-out;
-					transition: opacity 0.3s linear, top 0.3s ease-out;
+			  -webkit-transition: opacity 0.3s linear, top 0.5s ease-out;
+				-moz-transition: opacity 0.3s linear, top 0.5s ease-out;
+				  -o-transition: opacity 0.3s linear, top 0.5s ease-out;
+					transition: opacity 0.3s linear, top 0.5s ease-out;
 		}
 		
 		.i_t_holder{
@@ -321,10 +319,11 @@ body {
 				width: 20%;
 				height: 57%;
 				
-			  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
-				-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
-				  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
-					transition: opacity 0.3s linear, left 0.3s ease-out;
+				
+			  -webkit-transition: opacity 0.3s linear, left 0.5s ease-out;
+				-moz-transition: opacity 0.3s linear, left 0.5s ease-out;
+				  -o-transition: opacity 0.3s linear, left 0.5s ease-out;
+					transition: opacity 0.3s linear, left 0.5s ease-out;
 		}
 		
 			.i_slider{
@@ -334,6 +333,7 @@ body {
 				left: 85%;
 				width: 13%;
 				height: 8%;
+				
 				background-color: white;
 				
 				-webkit-border-radius: 2px;
@@ -351,9 +351,6 @@ body {
 				background-image: url("../icons/icon-hand-left.png");
 				background-position: 5px 5px;
 				background-repeat: no-repeat;
-				
-				
-				
 			}
 			
 			
@@ -371,12 +368,8 @@ body {
 				top: 5%;
 				width: 80%;
 				height: 90%;
-				border: thin solid yellow;
 				
-				background-color: rgba(255, 255, 255, 0.5);
-			  	border: 1px solid #999;
-			  	border: 1px solid rgba(0, 0, 0, 0.3);
-			  	*border: 1px solid #999;
+			  	background-color: rgba(255, 255, 255, 0.6);
 			  	
 			  	-webkit-border-radius: 7px;
 				-moz-border-radius: 7px;
@@ -390,8 +383,16 @@ body {
 				-moz-background-clip: padding-box;
 					background-clip: padding-box;
 				
-				
 			}
+			
+				#thumbnail_div_header{
+					height: 5%;
+				}
+			
+				#thumbnail_div_body{
+					height: 90%;
+					overflow-y: auto;
+				}
 		
 		.i_holder.i_in{
 			top: 10%;
@@ -402,16 +403,17 @@ body {
 		}
 		
 			.thumb{
-				width: 70%;
+				width: 85%;
 				height: 30%;
 				margin: 5%;
 				display: block;
 			}
 			
 			.img{
-				width: 100%;
-				height: 100%;
+				width: 99%;
+				height: 99%;
 				display: inline-block;
+				border: thin solid #333333;
 			}
 		
 		#image_list_close{
