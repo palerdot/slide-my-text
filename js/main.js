@@ -863,6 +863,8 @@ $(document).ready(function(){
 	var ifs = document.getElementById("images_select");
 	var ifh = document.getElementById("image_files");
 	
+	var i_fs_button = document.getElementById("i_fullscreen_button");
+	
 	//var tfh = $('#text_file');
 	
 	var text_drop_zone = document.getElementById("text_file_drop_area");
@@ -1151,6 +1153,12 @@ $(document).ready(function(){
 	ifs.addEventListener("click", function(){
 	
 		ifh.click();
+	
+	}, false);
+	
+	i_fs_button.addEventListener("click", function(){
+	
+		toggle_full_screen();
 	
 	}, false);
 	

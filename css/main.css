@@ -422,6 +422,12 @@ body {
 			left: 73%;
 		}
 		
+		#i_fullscreen_button{
+			position: fixed;
+			top: 3%;
+			left: 25%;
+		}
+		
 		#image_name{
 			position: absolute;
 			top: 5%;
