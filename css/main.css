@@ -251,7 +251,19 @@ body {
 				background-color: yellow;
 			}
 			
+			.mm_icon{
+				background-image: url("../icons/icon-film.png");
+				background-position: 6px 5px;
+				background-repeat: no-repeat;
+				background-color: blue;
+			}
 				
+			.music_icon{
+				background-image: url("../icons/icon-music.png");
+				background-position: 6px 5px;
+				background-repeat: no-repeat;
+				background-color: blue;
+			}
 			
 			.slide_list_icon{
 				background-image: url("../icons/icon-show-thumbnails-with-lines.png");
@@ -488,6 +500,82 @@ body {
 		}
 		
 		
+		#mm_overlay{
+	
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000000;
+			opacity: 1;
+			z-index: 5001;
+			display: none;
+	
+		}
+		
+			#mm_close{
+				position: absolute;
+				top: 3%;
+				left: 73%;
+			}
+		
+			#mm_filetype_button{
+				position: absolute;
+				top: 3%;
+				left: 25%;
+				width: 50px;
+				height: 50px;
+				border: thin solid grey;
+			}
+			
+				#audio_type, #video_type{
+					display: none;
+				}
+		
+			#mm_name{
+				position: absolute;
+				top: 5%;
+				left: 35%;
+				width: 30%;
+				height: 3%;
+				overflow: hidden;
+				text-align: center;
+				color: white;
+			}
+			
+			#mm_drag_zone{
+				position: absolute;
+				top: 15%;
+				left: 25%;
+				width: 50%;
+				height: 60%;
+				border: thick dotted blue;
+			}
+			
+			#mm_add_file{
+				position: absolute;
+				top: 80%;
+				left: 35%;
+			}
+			
+			#mm_file{
+				display: none;
+			}
+			
+			#media_reset{
+				position: absolute;
+				top: 90%;
+				left: 42%;
+				display: none;
+			}
+			
+			video, audio {
+				position: absolute;
+				width: 100%;
+				height: 90%;
+				display: none;
+			}
 
 
 #error_msg{

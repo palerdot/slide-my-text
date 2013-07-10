@@ -85,6 +85,7 @@
 			<div id = "slide_control_holder">
 			
 				<div id = "control_pane">
+					<span class = "control_icon fullscreen_icon" title = "toggle full screen" id = "fullscreen_button"></span>
 					<span class = "control_icon stop_icon" title = "quit slide show" id = "stop_button"></span>
 					<span class = "control_icon first_slide_icon" title = "show first slide" id = "show_first_button"></span>
 					<span class = "control_icon prev_slide_icon" title = "show previous slide" id = "prev_button"></span>
@@ -93,7 +94,7 @@
 					<span class = "control_icon last_slide_icon" title = "show last slide" id = "show_last_button"></span>
 					<span class = "control_icon slide_list_icon" title = "show slide list" id = "slide_list_button"></span>
 					<span class = "control_icon image_list_icon" title = "show images" id = "show_images_button"></span>
-					<span class = "control_icon fullscreen_icon" title = "toggle full screen" id = "fullscreen_button"></span>
+					<span class = "control_icon mm_icon" title = "multimedia" id = "mm_button"></span>
 				</div>	
 				
 			</div>
@@ -124,11 +125,39 @@
 		
 		</div>
 		
-			
-		
-		
 		
 		<!-- END: end of image list overlay and image divs -->
+		
+		<!-- START: start of multimedia overlay  -->
+		
+		<div id = "mm_overlay">
+		
+			<button id = "mm_close" class = "image_close">&times;</button>
+			<div id = "mm_name">hello</div>
+			<div id = "mm_filetype_button" title = "file type">
+				<div id = "video_type" class = "control_icon mm_icon"></div>
+				<div id = "audio_type" class = "control_icon music_icon"></div>
+			</div>
+			
+			<div id = "mm_drag_zone">
+			
+				<video id = "video" controls></video>
+			
+				<audio id = "audio" controls></audio>
+				
+				<div id = "media_reset" class = "btn btn-primary">Reset media</div>
+			
+			</div>
+			
+			<div id = "mm_add_file" class = "btn btn-primary btn-large">Drag and Drop media files above or add here !</div>
+			
+			<input type = "file" id = "mm_file" name = "mm_file" />
+			
+			
+		
+		</div>
+		
+		<!-- END: end of multimedia overlay  -->
 		
 		<!-- START: start of slide list overlay and modal -->
 	
