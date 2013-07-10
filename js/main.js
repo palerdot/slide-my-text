@@ -7,7 +7,11 @@ var S = {
 	theme : 0,
 	content : new String(),
 	keynote_mode : false,
-	text_file_added : false
+	text_file_added : false,
+	slider_out : true,
+	images : [],
+	total_images : 0,
+	curr_image : 0
 
 };
 
@@ -608,6 +612,139 @@ function App(content){
 }//end of App()
 
 
+//start of Img object
+
+function Img(file, id){
+
+	window.URL = window.URL || window.webkitURL;
+	
+	var iname = file.name;
+	
+	var li = iname.lastIndexOf('.');
+	
+	var name = iname.slice(0, li);
+	
+	this.get_name = function(){
+		return name;
+	};
+	
+	var t_body = $('#thumbnail_div_body');
+	var i_body = $('#image_holder');
+
+	var thumb = $('<img></img>');
+	thumb.addClass('thumb');
+	thumb.attr("thumb", id);
+	
+	var img = $('<img></img>');
+	img.addClass('img');
+	
+	var img_id = 'img_'+id;
+	img.attr("id", img_id);
+	
+	thumb.attr("src", window.URL.createObjectURL(file));
+	img.attr("src", window.URL.createObjectURL(file));
+	
+	t_body.append(thumb);
+
+	i_body.append(img);
+	img.hide();
+	
+	
+	thumb.onload = function(e){
+		window.URL.revokeObjectURL(this.src);
+	};
+	
+	img.onload = function(e){
+		window.URL.revokeObjectURL(this.src);
+	};
+	
+
+}
+
+//end of Img object
+
+function handle_images(evt){
+
+	window.URL = window.URL || window.webkitURL;
+
+	var i_files = evt.target.files;
+	
+	var i_alert = $('#pics_file_alert_pane span');
+	var i_count = $('#image_count');
+	
+	if(!i_files.length){
+		i_alert.text("No images added");
+	}else{
+	
+		i_alert.text("").hide();
+		//process all the added images
+		
+		for(var i = 0; i < i_files.length; i++){
+		
+			var file = i_files[i];
+			var img_type = /image.*/;
+			
+			if(!file.type.match(img_type)){
+				continue;
+			}
+			
+			//now we have only image files
+			var j = S.total_images;
+			
+			S.images[j] = new Img(file, j);
+			S.total_images++;
+		
+		}
+		
+	i_count.text(S.total_images);
+	
+	}
+
+}
+
+function handle_image_drop(evt){
+
+	evt.stopPropagation();
+  	evt.preventDefault();
+
+	window.URL = window.URL || window.webkitURL;
+
+	var i_files = evt.dataTransfer.files;
+	
+	var i_alert = $('#pics_file_alert_pane span');
+	var i_count = $('#image_count');
+	
+	if(!i_files.length){
+		i_alert.text("No images added");
+	}else{
+	
+		i_alert.text("").hide();
+		//process all the added images
+		
+		for(var i = 0; i < i_files.length; i++){
+		
+			var file = i_files[i];
+			var img_type = /image.*/;
+			
+			if(!file.type.match(img_type)){
+				continue;
+			}
+			
+			//now we have only image files
+			var j = S.total_images;
+			
+			S.images[j] = new Img(file, j);
+			S.total_images++;
+		
+		}
+		
+	i_count.text(S.total_images);
+	
+	}
+
+}
+
+
 function copy_file_contents(evt){
 
 	var files = evt.target.files;
@@ -633,6 +770,7 @@ function copy_file_contents(evt){
 	
 
 }
+
 
 function readBlob(file){
 
@@ -671,6 +809,7 @@ function dragover(e) {
   e.stopPropagation();
   e.preventDefault();
 }
+
 
 function drop(e) {
 
@@ -721,9 +860,16 @@ $(document).ready(function(){
 	
 	var tfs = document.getElementById("text_file_select");
 	var tfh = document.getElementById("text_file");
+	
+	var ifs = document.getElementById("images_select");
+	var ifh = document.getElementById("image_files");
+	
+	var i_fs_button = document.getElementById("i_fullscreen_button");
+	
 	//var tfh = $('#text_file');
 	
 	var text_drop_zone = document.getElementById("text_file_drop_area");
+	var i_drop_zone = document.getElementById("pics_file_drop_area");
 	
 	var tdz = $("#text_file_drop_message");
 	
@@ -758,6 +904,25 @@ $(document).ready(function(){
 	var slm = $('#slide_list_modal');
 	var slo = $('#slide_list_overlay');
 	
+	var ilo = $('#image_list_overlay');
+	var i_list_button = $('#show_images_button');
+	var i_close = $('#image_list_close');
+	var ip = $('#images_preview');
+	
+	var i_holder = $('#image_holder');
+	var i_t_holder = $('#image_thumbnail_holder');
+	
+	var i_slider = $('#i_slider');
+	var i_s_out = $('#i_slider_out');
+	var i_s_in = $('#i_slider_in');
+	var iname = $('#image_name');
+	
+	var i_next = $('#image_next');
+	var i_prev = $('#image_prev');
+	var i_reset = document.getElementById('image_reset');
+	
+	var i_alert = $('#pics_file_alert_pane span');
+	
 	var slb = $('span.slide_list_button');
 	
 	var error_div = $('#error_msg');
@@ -774,6 +939,153 @@ $(document).ready(function(){
 	// *****************************************************************
 	
 	//start of event listeners
+	
+	i_list_button.click(function(){
+		ilo.fadeIn();
+		i_holder.fadeIn().addClass('i_in');
+		i_t_holder.fadeIn().addClass('i_in');
+	});
+	
+	ip.click(function(){
+	
+		if(S.total_images > 0){
+		
+			i_alert.text("").hide();
+	
+			ilo.fadeIn();
+			i_holder.fadeIn().addClass('i_in');
+			i_t_holder.fadeIn().addClass('i_in');
+		
+			var img = '#img_'+S.curr_image;
+			var name = S.images[S.curr_image].get_name();
+			$(img).fadeIn();
+			iname.text(name);
+		
+			if(S.curr_image == 0)
+				i_prev.addClass('inactive');
+			if(S.curr_image == S.total_images - 1)
+				i_next.addClass('inactive');
+			
+		}else{
+			i_alert.text("No images added").show();
+		}
+		
+	});
+	
+	i_close.click(function(){
+		
+		i_holder.removeClass('i_in').fadeOut('slow');
+		i_t_holder.removeClass('i_in').hide();
+		ilo.fadeOut();
+		
+		if(!S.slider_out){
+			S.slider_out = true;
+			i_s_in.hide(); i_s_out.show();
+		}
+		
+	});
+	
+	i_slider.click(function(){
+		
+		if(S.slider_out){
+			S.slider_out = false;
+			i_t_holder.removeClass('i_in');
+			i_s_out.hide(); i_s_in.show();
+		}else{
+			S.slider_out = true;
+			i_t_holder.addClass('i_in');
+			i_s_in.hide(); i_s_out.show();
+		}
+		
+	});
+	
+	i_t_holder.on('click', 'img.thumb', function(){
+	
+		if(S.curr_image == 0){
+				i_prev.removeClass('inactive');
+		}
+		
+		if(S.curr_image == S.total_images - 1){
+				i_next.removeClass('inactive');
+		}
+	
+		var thumb_id = $(this).attr("thumb");
+		
+		var img = '#img_'+S.curr_image;
+		$(img).hide();
+		img = '#img_'+thumb_id;
+		S.curr_image = thumb_id;
+		$(img).fadeIn('slow');
+		
+		var name = S.images[S.curr_image].get_name();
+		$(img).fadeIn();
+		iname.text(name);
+		
+		if(S.curr_image == S.total_images - 1){
+				i_next.addClass('inactive');
+		}
+		
+		if(S.curr_image == 0){
+				i_prev.addClass('inactive');
+		}
+		
+	});
+	
+	i_prev.click(function(){
+		if(S.curr_image > 0){
+		
+			if(S.curr_image == S.total_images - 1){
+				i_next.removeClass('inactive');
+			}
+			
+			var img = '#img_'+S.curr_image;
+			$(img).hide();
+			
+			S.curr_image--;
+			
+			img = '#img_'+S.curr_image;
+			$(img).fadeIn('slow');
+		
+			var name = S.images[S.curr_image].get_name();
+			$(img).fadeIn();
+			iname.text(name);
+			
+			if(S.curr_image == 0){
+				i_prev.addClass('inactive');
+			}else{
+				i_prev.removeClass('inactive');
+			}
+			
+		}
+	});
+	
+	i_next.click(function(){
+		if(S.curr_image < S.total_images - 1){
+		
+			if(S.curr_image == 0){
+				i_prev.removeClass('inactive');
+			}
+			
+			var img = '#img_'+S.curr_image;
+			$(img).hide();
+			
+			S.curr_image++;
+			
+			img = '#img_'+S.curr_image;
+			$(img).fadeIn('slow');
+		
+			var name = S.images[S.curr_image].get_name();
+			$(img).fadeIn();
+			iname.text(name);
+			
+			if(S.curr_image == S.total_images - 1){
+				i_next.addClass('inactive');
+			}else{
+				i_next.removeClass('inactive');
+			}
+			
+		}
+	});
 	
 	slm.on('click', 'span.slide_list_button', function(){
 	
@@ -822,11 +1134,40 @@ $(document).ready(function(){
 		S.app.display(last_slide - 1);
 	});
 	
+	i_reset.addEventListener("click", function(){
+	
+		S.images = [];
+		S.total_images = 0;
+		S.curr_image = 0;
+		
+		var i_count = $('#image_count');
+		i_count.text("0");
+	
+	}, false);
+	
 	tfs.addEventListener("click", function(){
 	
 		tfh.click();
 	
 	}, false);
+	
+	ifs.addEventListener("click", function(){
+	
+		ifh.click();
+	
+	}, false);
+	
+	i_fs_button.addEventListener("click", function(){
+	
+		toggle_full_screen();
+	
+	}, false);
+	
+	ifh.addEventListener("change", handle_images, false);
+	
+	i_drop_zone.addEventListener("dragenter", dragenter, false);
+	i_drop_zone.addEventListener("dragover", dragover, false);
+	i_drop_zone.addEventListener("drop", handle_image_drop, false);
 	
 	tfh.addEventListener("change", copy_file_contents, false);
 	

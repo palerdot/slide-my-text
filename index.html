@@ -46,18 +46,19 @@
 				<div id = "pics_drop_pane">
 				
 					<div id = "pics_file_alert_pane">
-						<span class = "alert-yellow">sorry ! not an image file</span>
+						<span class = "alert-yellow"></span>
 					</div>
 					
 					<div id = "pics_file_drop_area"></div>
 					
 					<div id = "pics_file_select_area">
-						<span class = "pics_select_icon browse_text">Add image(s)</span>
+						<span class = "pics_select_icon browse_text" id = "images_select">Add image(s)</span>
+						<input type = "file" id = "image_files" name = "image_files" multiple />
 					</div>
 					
-					<div id = "pics_file_info_area">Image(s) added: 7</div>
+					<div id = "pics_file_info_area">Image(s) added: <span id = "image_count">0</span></div>
 					
-					<div id = "pics_file_options_area"><button class = "btn btn-primary options-btn">Reset</button><button class = "btn btn-primary options-btn">Preview</button></div>
+					<div id = "pics_file_options_area"><button class = "btn btn-primary options-btn" id = "image_reset">Reset</button><button class = "btn btn-primary options-btn" id = "images_preview">Preview</button></div>
 					
 				</div>
 			</div>
@@ -91,8 +92,8 @@
 					<span class = "control_icon next_slide_icon" title = "show next slide" id = "next_button"></span>
 					<span class = "control_icon last_slide_icon" title = "show last slide" id = "show_last_button"></span>
 					<span class = "control_icon slide_list_icon" title = "show slide list" id = "slide_list_button"></span>
-					<span class = "control_icon image_list_icon" title = "show images"></span>
-					<span class = "control_icon fullscreen_icon" title = "go full screen" id = "fullscreen_button"></span>
+					<span class = "control_icon image_list_icon" title = "show images" id = "show_images_button"></span>
+					<span class = "control_icon fullscreen_icon" title = "toggle full screen" id = "fullscreen_button"></span>
 				</div>	
 				
 			</div>
@@ -101,7 +102,33 @@
 		
 		<!-- END: end of slide show pane -->
 		
+		<!-- START: start of image list overlay and image divs -->
 		
+		<div id = "image_list_overlay">
+		
+			<button id = "image_list_close" class = "image_close">&times;</button>
+			<div id = "image_name">hello</div>
+			<div id = "i_fullscreen_button" class = "control_icon fullscreen_icon" title = "toggle full screen"></div>
+		
+			<div id = "image_holder" class = "i_holder"></div>
+			
+			<div id = "image_prev" class = "active"></div> <div id = "image_next" class = "active"></div>
+		
+			<div id = "image_thumbnail_holder" class = "i_t_holder" >
+				<div class = "i_slider" id = "i_slider"><span id = "i_slider_out"></span><span id = "i_slider_in"></span></div>
+				<div id = "thumbnail_div">
+					<div id = "thumbnail_div_header"></div>
+					<div id = "thumbnail_div_body"></div>
+				</div>
+			</div>
+		
+		</div>
+		
+			
+		
+		
+		
+		<!-- END: end of image list overlay and image divs -->
 		
 		<!-- START: start of slide list overlay and modal -->
 	
