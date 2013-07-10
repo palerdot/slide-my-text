@@ -575,6 +575,16 @@ body {
 				height: 90%;
 				display: none;
 			}
+			
+			#mm_error_div{
+				position: absolute;
+				top: 87%;
+				left: 24%;
+				width: 50%;
+				text-align: center;
+				font-size: 25px;
+				display: none;
+			}
 
 
 #error_msg{

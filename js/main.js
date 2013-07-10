@@ -857,6 +857,8 @@ function handle_mm(evt){
 				
 				//it is a video file
 				
+				check_mm_support(type);
+				
 				var obj_url = window.URL.createObjectURL(f);
 				
 				video.src = window.URL.createObjectURL(f);
@@ -872,6 +874,8 @@ function handle_mm(evt){
 			}else if(type.match(a_type)){
 			
 				//it is a audio file
+				
+				check_mm_support(type);
 			
 				var obj_url = window.URL.createObjectURL(f);
 			
@@ -892,6 +896,104 @@ function handle_mm(evt){
 			name.text("Not a media file");
 		}
 	
+
+}
+
+function check_mm_support(type){
+
+		var a = false; var v = false;
+		
+		var alert = $('#mm_error'); var alert_div = $('#mm_error_div');
+		
+		as = !!document.createElement('audio').canPlayType;
+		
+		vs = !!document.createElement('video').canPlayType;
+		
+		var a = document.createElement('audio');
+		
+		var v = document.createElement('video');
+
+
+	if(!type){
+		
+			if (as && !vs){
+				alert.text("only Audio playback supported by browser");
+				alert_div.show();
+				}
+			else if (!as && vs){
+				alert.text("only Video playback supported by browser");
+				alert_div.show();
+				}
+			else if (!as && !vs){
+				alert.text("Audio and Video playback not supported by browser");
+				alert_div.show();
+				}
+		
+	}else{
+	
+		console.log(type);
+	
+		switch(type){
+		
+			case 'audio/mpeg':
+			var can_play = !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'audio/ogg':
+			var can_play = !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'audio/wav':
+			var can_play = !!(a.canPlayType && a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'audio/mp4':
+			var can_play = !!(a.canPlayType && a.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'video/webm':
+			var can_play = !!(v.canPlayType && v.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'video/mp4':
+			var can_play = !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+			
+			case 'video/ogg':
+			var can_play = !!(v.canPlayType && v.canPlayType('video/ogg; codecs="theora"').replace(/no/, ''));
+				if(!can_play){
+					alert.text("File type not supported");
+					alert_div.show();
+				}
+			break;
+		
+		}
+	
+	}
 
 }
 
@@ -1062,6 +1164,8 @@ $(document).ready(function(){
 	var m_add = document.getElementById('mm_add_file');
 	var mm_reset = $('#media_reset');
 	var mm_close = $('#mm_close');
+	var mm_error_div = $('#mm_error_div');
+	var mm_e_close = $('#mm_error_close');
 	var mm_name = $('#mm_name');
 	
 	var v_icon = $('#video_type');
@@ -1105,6 +1209,8 @@ $(document).ready(function(){
 	
 	check_file_api();
 	
+	check_mm_support();
+	
 	// *****************************************************************
 	
 	//start of event listeners
@@ -1114,6 +1220,7 @@ $(document).ready(function(){
 	});
 	
 	mm_close.click(function(){
+		video.pause(); audio.pause();
 		mo.fadeOut();
 	});
 	
@@ -1124,6 +1231,10 @@ $(document).ready(function(){
 		a_icon.hide(); v_icon.hide();
 		mm_name.text("");
 		mm_reset.hide();
+	});
+	
+	mm_e_close.click(function(){
+		mm_error_div.hide();
 	});
 	
 	i_list_button.click(function(){
