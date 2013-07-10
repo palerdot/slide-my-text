@@ -1238,9 +1238,27 @@ $(document).ready(function(){
 	});
 	
 	i_list_button.click(function(){
-		ilo.fadeIn();
-		i_holder.fadeIn().addClass('i_in');
-		i_t_holder.fadeIn().addClass('i_in');
+	
+		if(S.total_images > 0){
+		
+			i_alert.text("").hide();
+	
+			ilo.fadeIn();
+			i_holder.fadeIn().addClass('i_in');
+			i_t_holder.fadeIn().addClass('i_in');
+		
+			var img = '#img_'+S.curr_image;
+			var name = S.images[S.curr_image].get_name();
+			$(img).fadeIn();
+			iname.text(name);
+		
+			if(S.curr_image == 0)
+				i_prev.addClass('inactive');
+			if(S.curr_image == S.total_images - 1)
+				i_next.addClass('inactive');
+				
+		}
+		
 	});
 	
 	ip.click(function(){
@@ -1503,6 +1521,11 @@ $(document).ready(function(){
 			S.app.display();
 		
 			ss.fadeIn();
+			
+				if(S.total_images == 0){
+					i_list_button.addClass("icon_inactive");
+				}else
+					i_list_button.removeClass("icon_inactive");
 		
 			$(this).removeClass('disabled');
 		
