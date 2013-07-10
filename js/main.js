@@ -744,6 +744,82 @@ function handle_image_drop(evt){
 
 }
 
+function handle_mm_drop(evt){
+
+	evt.stopPropagation();
+  	evt.preventDefault();
+
+	window.URL = window.URL || window.webkitURL;
+
+	var j_video = $('#video');
+	var j_audio = $('#audio');
+	
+	var video = document.getElementById("video");
+	var audio = document.getElementById("audio");
+
+	var files = evt.dataTransfer.files
+	
+	var f = files[0];
+	
+	var type = f.type;
+	
+	var v_type = /video.*/; var a_type = /audio.*/;
+	
+	var name = $('#mm_name');
+	var mm_reset = $('#media_reset');
+	
+	var v_icon = $('#video_type');
+	var a_icon = $('#audio_type');
+	
+	var full_name = f.name;
+	
+	var li = full_name.lastIndexOf('.');
+	
+	var file_name = full_name.slice(0, li);
+	
+		if(type.match(v_type) || type.match(a_type)){
+			
+			if(type.match(v_type)){
+				
+				//it is a video file
+				
+				var obj_url = window.URL.createObjectURL(f);
+				
+				video.src = window.URL.createObjectURL(f);
+				j_video.show();
+				video.play();
+				a_icon.hide(); v_icon.show();
+				mm_reset.show();
+				
+				name.text(file_name + " [video file]");
+				
+				window.URL.revokeObjectURL(obj_url);	
+				
+			}else if(type.match(a_type)){
+			
+				//it is a audio file
+			
+				var obj_url = window.URL.createObjectURL(f);
+			
+				audio.src = window.URL.createObjectURL(f);
+				j_audio.show();
+				audio.play();
+				v_icon.hide(); a_icon.show();
+				mm_reset.show();
+				
+				name.text(file_name + " [audio file]");
+				
+				window.URL.revokeObjectURL(obj_url);
+			
+			}
+			
+			
+		}else{
+			name.text("Not a media file");
+		}
+
+}
+
 
 function handle_mm(evt){
 
@@ -945,6 +1021,7 @@ $(document).ready(function(){
 	
 	var text_drop_zone = document.getElementById("text_file_drop_area");
 	var i_drop_zone = document.getElementById("pics_file_drop_area");
+	var mm_drop_zone = document.getElementById("mm_drag_zone");
 	
 	var tdz = $("#text_file_drop_message");
 	
@@ -985,6 +1062,10 @@ $(document).ready(function(){
 	var m_add = document.getElementById('mm_add_file');
 	var mm_reset = $('#media_reset');
 	var mm_close = $('#mm_close');
+	var mm_name = $('#mm_name');
+	
+	var v_icon = $('#video_type');
+	var a_icon = $('#audio_type');
 	
 	var j_video = $('#video');
 	var j_audio = $('#audio');
@@ -1040,6 +1121,8 @@ $(document).ready(function(){
 		video.pause(); audio.pause();
 		video.src = ''; audio.src = '';
 		j_video.hide(); j_audio.hide();
+		a_icon.hide(); v_icon.hide();
+		mm_name.text("");
 		mm_reset.hide();
 	});
 	
@@ -1278,6 +1361,18 @@ $(document).ready(function(){
 	text_drop_zone.addEventListener("dragover", dragover, false);
 	text_drop_zone.addEventListener("drop", drop, false);
 	
+	m_file.addEventListener("change", handle_mm, false);
+	
+	mm_drop_zone.addEventListener("dragenter", dragenter, false);
+	mm_drop_zone.addEventListener("dragover", dragover, false);
+	mm_drop_zone.addEventListener("drop", handle_mm_drop, false);
+	
+	m_add.addEventListener("click", function(){
+	
+		m_file.click();
+	
+	}, false);
+	
 	
 	cs.click(function(){
 	
@@ -1363,13 +1458,9 @@ $(document).ready(function(){
 	
 	});
 	
-	m_add.addEventListener("click", function(){
 	
-		m_file.click();
 	
-	}, false);
 	
-	m_file.addEventListener("change", handle_mm, false);
 	
 	//end of event listeners
 	
