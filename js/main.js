@@ -509,10 +509,10 @@ function App(content){
 					slide_list.attr("slide_no", id);
 					
 					
-					if(i == 0 && slide_contents[0].match(/^(?:\s*)\*([\w | \s]*)\*(?:\s*)$/)){
+					if(i == 0 && slide_contents[0].match(/^\s*\*(.*)\*\s*$/)){
 						
 							// this slide has a title
-							title = $.trim(slide_contents[0].match(/^(?:\s*)\*([\w | \s]*)\*(?:\s*)$/)[1]);
+							title = $.trim(slide_contents[0].match(/^\s*\*(.*)\*\s*$/)[1]);
 							slide_list.text(title);
 							slide_list_body.append(slide_list);
 							
