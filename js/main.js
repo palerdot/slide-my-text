@@ -852,6 +852,8 @@ function handle_mm(evt){
 	var file_name = full_name.slice(0, li);
 	
 		if(type.match(v_type) || type.match(a_type)){
+		
+			mm_reset.click();
 			
 			if(type.match(v_type)){
 				
