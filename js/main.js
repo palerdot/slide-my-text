@@ -523,9 +523,33 @@ function App(content){
 						slide_list_body.append(slide_list);
 					}
 					
-					if(slide_contents[i].match(/^(?:\s*)-(?:\s*)([\w | \s]*)$/)){
+					if(slide_contents[i].match(/^\s*-{2}\s*(.*)$/)){
 					
-						slide_contents[i] = $.trim(slide_contents[i].match(/^(?:\s*)-(?:\s*)([\w | \s]*)$/)[1]);
+						
+						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{2}\s*(.*)$/)[1]);
+						
+						points[curr_point] = $('<div></div>');
+						points[curr_point].attr("id", 'point_'+curr_point);
+						points[curr_point].addClass('slide_highlight point');
+						points[curr_point].text(slide_contents[i]);
+						
+						
+						//var ruler = $('<div class = "ruler"></div>');
+						//var ruler_id = '#ruler_'+curr_point;
+						//ruler.attr("id", ruler_id);
+						
+						//points[curr_point].append(ruler);
+						
+						
+						slide_data.append(points[curr_point]);
+						//console.log(points[curr_point]);
+						curr_point++;
+						
+						continue;
+						
+					}else if(slide_contents[i].match(/^\s*-{1}\s*(.*)$/)){
+					
+						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{1}\s*(.*)$/)[1]);
 						
 						points[curr_point] = $('<div></div>');
 						points[curr_point].attr("id", 'point_'+curr_point);
@@ -548,33 +572,7 @@ function App(content){
 						
 						continue;
 						
-					}
-					else if(slide_contents[i].match(/^(?:\s*)--(?:\s*)([\w | \s]*)$/)){
-					
-						
-						slide_contents[i] = $.trim(slide_contents[i].match(/^(?:\s*)--(?:\s*)([\w | \s]*)$/)[1]);
-						
-						points[curr_point] = $('<div></div>');
-						points[curr_point].attr("id", 'point_'+curr_point);
-						points[curr_point].addClass('slide_highlight point');
-						points[curr_point].text(slide_contents[i]);
-						
-						
-						//var ruler = $('<div class = "ruler"></div>');
-						//var ruler_id = '#ruler_'+curr_point;
-						//ruler.attr("id", ruler_id);
-						
-						//points[curr_point].append(ruler);
-						
-						
-						slide_data.append(points[curr_point]);
-						//console.log(points[curr_point]);
-						curr_point++;
-						
-						continue;
-						
-					}
-					else{
+					} else{
 						//normal point
 						
 						
