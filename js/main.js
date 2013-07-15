@@ -111,10 +111,7 @@ function App(content){
 	
 	this.manage_keynote_mode = function(mode){
 	
-		if(mode){
-			
-			
-		}else{
+		if(!mode){
 		
 			//keynote deactivated halfway. show the remaining slides
 			var total = slides[curr_slide].get_total_points();
@@ -147,7 +144,7 @@ function App(content){
 		
 		if(slide_no == 0 || typeof(slide_no) == 'undefined'){
 		
-			$(ts).hide('fast');
+			$(ts).hide();
 		
 			curr_slide = 0;
 			
@@ -158,6 +155,8 @@ function App(content){
 				title_div.text(slides[curr_slide].get_slide_title());
 			
 				$(ts).delay('300').fadeIn('slow');
+				
+				curr_point = slides[curr_slide].get_total_points();
 			
 			}else{
 			
@@ -190,7 +189,7 @@ function App(content){
 		
 		}else{
 		
-			$(ts).hide('fast');
+			$(ts).hide();
 		
 			curr_slide = slide_no;
 			
@@ -202,6 +201,8 @@ function App(content){
 				title_div.text(slides[slide_no].get_slide_title());
 			
 				$(ts).delay('300').fadeIn('slow');
+				
+				curr_point = slides[curr_slide].get_total_points();
 			
 			}else{
 			
