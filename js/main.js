@@ -333,12 +333,13 @@ function App(content){
 					
 					$(ts).children(point).fadeIn('slow');
 					
-					//console.log($(point).position().top);
 					
-					var scroll_to = $(point).position().top + content_div.scrollTop(); var height = $(point).height();
 					
-					if(scroll_to > 0)
-						content_div.animate({scrollTop: scroll_to + height + '50'});
+					var scroll_to = $(point).position().top + content_div.scrollTop(); 
+					var height = $(ts).children(point).height();
+					
+					
+					content_div.animate({scrollTop: scroll_to + height + '50px'});
 					
 					curr_point++;
 					
