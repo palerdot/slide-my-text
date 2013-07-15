@@ -130,6 +130,12 @@ function App(content){
 			}else{
 				curr_point = slides[curr_slide].get_total_points();
 			}
+			
+			
+			if(curr_slide == total_slides - 1 && curr_point == slides[curr_slide].get_total_points()){
+						next_button.addClass('icon_inactive');
+						last_button.addClass('icon_inactive');
+					}
 		
 		}
 	
@@ -139,12 +145,17 @@ function App(content){
 		
 		//initial display
 		//displays first slide
+		console.log(S.keynote_mode);
+		console.log('slide '+slide_no);
 		
 		var ts = '#slide_'+curr_slide;
 		
 		if(slide_no == 0 || typeof(slide_no) == 'undefined'){
 		
 			$(ts).hide();
+			
+			//make all the points visible in case they are partially visible
+			$(ts).children('.point').show();
 		
 			curr_slide = 0;
 			
@@ -190,6 +201,9 @@ function App(content){
 		}else{
 		
 			$(ts).hide();
+			
+			//make all the points visible in case they are partially visible
+			$(ts).children('.point').show();
 		
 			curr_slide = slide_no;
 			
@@ -220,6 +234,8 @@ function App(content){
 					
 				curr_point++;
 			}
+			
+			
 			
 			if(slide_no == total_slides - 1){
 				last_button.addClass('icon_inactive');
