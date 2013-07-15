@@ -667,14 +667,17 @@ function handle_images(evt){
 
 	var i_files = evt.target.files;
 	
-	var i_alert = $('#pics_file_alert_pane span');
+	var i_alert_pane = $('#pics_file_alert_pane');
+	var i_alert = $('#no_image_alert');
+	
 	var i_count = $('#image_count');
 	
 	if(!i_files.length){
 		i_alert.text("No images added");
 	}else{
 	
-		i_alert.text("").hide();
+		i_alert.text("");
+		i_alert_pane.hide();
 		//process all the added images
 		
 		for(var i = 0; i < i_files.length; i++){
@@ -709,14 +712,17 @@ function handle_image_drop(evt){
 
 	var i_files = evt.dataTransfer.files;
 	
-	var i_alert = $('#pics_file_alert_pane span');
+	var i_alert_pane = $('#pics_file_alert_pane');
+	var i_alert = $('#no_image_alert');
+	
 	var i_count = $('#image_count');
 	
 	if(!i_files.length){
 		i_alert.text("No images added");
 	}else{
 	
-		i_alert.text("").hide();
+		i_alert.text("");
+		i_alert_pane.hide();
 		//process all the added images
 		
 		for(var i = 0; i < i_files.length; i++){
@@ -1005,18 +1011,16 @@ function copy_file_contents(evt){
 	var t_alert_pane = $("#text_file_alert_pane");
 	var t_alert = $("#text_file_alert");
 	var fn = $("#file_name");
-	var error_div = $('#error_msg');
+	
 	
 	var f = files[0];
 	
 	if(f.type == 'text/plain'){
 		readBlob(f);
 		fn.text(f.name);
-		error_div.html('');
 		t_alert_pane.hide();
 	}else{
 		t_alert.html('This is not a text file');
-		fn.text("No text file");
 		t_alert_pane.show();
 	}
 	
@@ -1184,6 +1188,7 @@ $(document).ready(function(){
 	
 	var i_holder = $('#image_holder');
 	var i_t_holder = $('#image_thumbnail_holder');
+	var t_body = $('#thumbnail_div_body');
 	
 	var i_slider = $('#i_slider');
 	var i_s_out = $('#i_slider_out');
@@ -1194,12 +1199,22 @@ $(document).ready(function(){
 	var i_prev = $('#image_prev');
 	var i_reset = document.getElementById('image_reset');
 	
-	var i_alert = $('#pics_file_alert_pane span');
+	var i_alert = $('#no_image_alert');
+	var i_alert_pane = $('#pics_file_alert_pane');
+	
+	var t_alert_pane = $("#text_file_alert_pane");
+	var t_alert = $("#text_file_alert");
 	
 	var slb = $('span.slide_list_button');
 	
 	var error_div = $('#error_msg');
 	var error_span = $('<span class = "alert-yellow"></span>');
+	
+	var theme_s = $('#theme_sunny');
+	var theme_c = $('#theme_cloudy');
+	var theme_d = $('#theme_dark');
+	
+	var themes = $('#theme_div .themes');
 	
 	//end of variables
 	
@@ -1282,7 +1297,8 @@ $(document).ready(function(){
 				i_next.addClass('inactive');
 			
 		}else{
-			i_alert.text("No images added").show();
+			i_alert.html("No images added");
+			i_alert_pane.show();
 		}
 		
 	});
@@ -1455,6 +1471,8 @@ $(document).ready(function(){
 		S.total_images = 0;
 		S.curr_image = 0;
 		
+		t_body.html("");
+		
 		var i_count = $('#image_count');
 		i_count.text("0");
 	
@@ -1530,9 +1548,9 @@ $(document).ready(function(){
 			$(this).removeClass('disabled');
 		
 		}else{
-			console.log('no text file added');
-			error_span.text("No text file added");
-			error_div.append(error_span);
+
+			t_alert.text("No text file added");
+			t_alert_pane.show();
 		}
 		
 	});
@@ -1593,7 +1611,20 @@ $(document).ready(function(){
 	});
 	
 	
+	theme_s.click(function(){
+		themes.removeClass('theme_selected');
+		$(this).addClass('theme_selected');
+	});
 	
+	theme_c.click(function(){
+		themes.removeClass('theme_selected');
+		$(this).addClass('theme_selected');
+	});
+	
+	theme_d.click(function(){
+		themes.removeClass('theme_selected');
+		$(this).addClass('theme_selected');
+	});
 	
 	
 	//end of event listeners
@@ -1638,7 +1669,7 @@ $(document).ready(function(){
 			
 		    } else if (document.documentElement.webkitRequestFullscreen) {
 			 document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-			 
+			 $(document.body).css("background", rgb(0, 15, 38));
 		    }
 		   
 		    
@@ -1652,12 +1683,14 @@ $(document).ready(function(){
 			 document.webkitCancelFullScreen();
 		    }
 		    
-		    
-		    
 		}
 		
 	
-	}
+	}//end of toggle full screen
+	
+	//choose cloudy theme as default
+	
+	theme_c.click();
 	
 	// end of modules 
 
