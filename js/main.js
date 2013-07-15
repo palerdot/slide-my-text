@@ -113,10 +113,6 @@ function App(content){
 	
 		if(mode){
 			
-			//curr_point = slides[curr_slide].get_total_points();
-			if(curr_point == slides[curr_slide].get_total_points()-1)
-				curr_point++;
-			
 			
 		}else{
 		
@@ -125,9 +121,6 @@ function App(content){
 			var ts = '#slide_'+curr_slide;
 			var point = '#point_';
 			var cp = curr_point;
-			
-			console.log(total);
-			console.log(cp);
 			
 			if(curr_point < total){
 			
@@ -263,7 +256,7 @@ function App(content){
 					prev_button.removeClass('icon_inactive');
 					}
 				
-				$(ts).hide('fast');	
+				$(ts).hide();	
 		
 				curr_slide++;
 				
@@ -289,7 +282,7 @@ function App(content){
 				
 					//end of this slide . . . have to move to next slide
 					
-					$(ts).hide('fast');
+					$(ts).hide();
 					
 					if(curr_slide == 0){
 						first_button.removeClass('icon_inactive');
@@ -333,13 +326,14 @@ function App(content){
 					
 					$(ts).children(point).fadeIn('slow');
 					
+					if($(point).position() != undefined){
 					
+						var scroll_to = $(point).position().top + content_div.scrollTop(); 
+						var height = $(ts).children(point).height();
 					
-					var scroll_to = $(point).position().top + content_div.scrollTop(); 
-					var height = $(ts).children(point).height();
+						content_div.animate({scrollTop: scroll_to + height + '50px'});
 					
-					
-					content_div.animate({scrollTop: scroll_to + height + '50px'});
+					}
 					
 					curr_point++;
 					
@@ -369,7 +363,7 @@ function App(content){
 					last_button.removeClass('icon_inactive');
 					}
 					
-				$(ts).hide('fast');	
+				$(ts).hide();	
 		
 				curr_slide--;
 				
@@ -398,7 +392,7 @@ function App(content){
 							last_button.removeClass('icon_inactive');
 					}
 					
-					$(ts).hide('fast');
+					$(ts).hide();
 			
 					curr_slide--;
 					
@@ -938,8 +932,6 @@ function check_mm_support(type){
 		
 	}else{
 	
-		console.log(type);
-	
 		switch(type){
 		
 			case 'audio/mpeg':
@@ -1085,8 +1077,6 @@ function drop(e) {
 	if(files.length == 1){
 	
 		var f = files[0];
-	
-		console.log(f.type);
 	
 		if(f.type == 'text/plain'){
 			readBlob(f);
