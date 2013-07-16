@@ -552,17 +552,8 @@ function App(content){
 						
 						points[curr_point] = $('<div></div>');
 						points[curr_point].attr("id", 'point_'+curr_point);
-						var temp_class = 'point slide_highlight_'+S.theme;
-						points[curr_point].addClass(temp_class);
+						points[curr_point].addClass('slide_highlight point');
 						points[curr_point].text(slide_contents[i]);
-						
-						
-						//var ruler = $('<div class = "ruler"></div>');
-						//var ruler_id = '#ruler_'+curr_point;
-						//ruler.attr("id", ruler_id);
-						
-						//points[curr_point].append(ruler);
-						
 						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
@@ -579,17 +570,8 @@ function App(content){
 						points[curr_point].addClass('slide_bullet_point point');
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-pencil.png" />');
-						var temp_class = 'slide_point_icon_'+S.theme;
-						img.addClass(temp_class);
+						img.addClass('slide_point_icon');
 						points[curr_point].prepend(img);
-						
-						//var ruler = $('<div class = "ruler"></div>');
-						//var ruler_id = '#ruler_'+curr_point;
-						//ruler.attr("id", ruler_id);
-						
-						//points[curr_point].append(ruler);
-						
-						
 						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
@@ -606,16 +588,8 @@ function App(content){
 						points[curr_point].addClass('slide_normal_point point');
 						points[curr_point].text(slide_contents[i]);
 						img = $('<img src = "icons/icon-dislikes.png" />');
-						var temp_class = 'slide_point_icon_'+S.theme;
-						img.addClass(temp_class);
+						img.addClass('slide_point_icon');
 						points[curr_point].prepend(img);
-						
-						//var ruler = $('<div class = "ruler"></div>');
-						//var ruler_id = '#ruler_'+curr_point;
-						//ruler.attr("id", ruler_id);
-						
-						//points[curr_point].append(ruler);
-						
 						
 						slide_data.append(points[curr_point]);
 						//console.log(points[curr_point]);
@@ -1566,6 +1540,10 @@ $(document).ready(function(){
 			S.app = new App(text_file_contents);
 			S.app.init();
 			S.app.display();
+			
+			//apply theme
+			
+			apply_theme(S.theme);
 		
 			ss.fadeIn();
 			
@@ -1652,8 +1630,6 @@ $(document).ready(function(){
 		S.theme = 'c';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
-		//ss.css("background-color", "red");
-		//ss.css("color", "white");
 	});
 	
 	theme_g.click(function(){
@@ -1729,6 +1705,32 @@ $(document).ready(function(){
 		
 	
 	}//end of toggle full screen
+	
+	function apply_theme(color){
+	
+		var slide_hl = $('#slide_content_holder .slide_highlight');
+		var slide_pi = $('#slide_content_holder .slide_point_icon');
+		
+		switch(color){
+		
+			case 'c':
+			
+				ss.css("background-color", "#000F26");
+				ss.css("color", "white");
+				slide_hl.css("background-color", "#F2F7FF");
+				slide_hl.css("color", "black");
+				slide_pi.css("background-color", "#F2F7FF");
+			
+			break;
+			
+			default:
+
+			
+			break;
+		
+		}
+	
+	}
 	
 	//choose cloudy theme as default
 	

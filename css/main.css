@@ -110,14 +110,6 @@ html, body {
 				background-color: white;
 			}
 			
-			.slide_point_icon_c{
-				display: inline-block;
-				width: auto;
-				height: auto;
-				margin: 0 10px;
-				padding: 2px;
-				background-color: #F2F7FF;
-			}
 		
 		.slide_bullet_point{
 			position: relative;
@@ -143,22 +135,6 @@ html, body {
 			font-size: 20px;
 			margin: 35px 0;
 			background-color: yellow;
-			color: black;
-			text-align: center;
-		}
-		
-		.slide_highlight_c{
-			position: relative;
-			left: 10%;
-			width: 80%;
-			height: auto;
-			overflow: hidden;
-			padding: 20px;
-			border-radius: 15px;
-			line-height: 40px;
-			font-size: 20px;
-			margin: 35px 0;
-			background-color: #F2F7FF;
 			color: black;
 			text-align: center;
 		}
