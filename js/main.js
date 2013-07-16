@@ -217,6 +217,13 @@ function App(content){
 				$(ts).delay('300').fadeIn('slow');
 				
 				curr_point = slides[curr_slide].get_total_points();
+				
+					if(slide_no == total_slides - 1){
+						last_button.addClass('icon_inactive');
+						next_button.addClass('icon_inactive');
+						prev_button.removeClass('icon_inactive');
+						first_button.removeClass('icon_inactive');
+					}
 			
 			}else{
 			
@@ -233,23 +240,23 @@ function App(content){
 				$(ts).children(point).fadeIn('slow');
 					
 				curr_point++;
+				
+					if(slide_no == total_slides - 1){
+						last_button.addClass('icon_inactive');
+						prev_button.removeClass('icon_inactive');
+						first_button.removeClass('icon_inactive');
+					}
+				
 			}
 			
 			
-			
-			if(slide_no == total_slides - 1){
-				last_button.addClass('icon_inactive');
-				next_button.addClass('icon_inactive');
-				prev_button.removeClass('icon_inactive');
-				first_button.removeClass('icon_inactive');
-				}
-			else if(slide_no == 0){
+			if(slide_no == 0){
 				first_button.addClass('icon_inactive');
 				prev_button.addClass('icon_inactive');
 				next_button.removeClass('icon_inactive');
 				last_button.removeClass('icon_inactive');
 				}
-			else{
+			else if (slide_no != total_slides - 1){
 				first_button.removeClass('icon_inactive');
 				next_button.removeClass('icon_inactive');
 				prev_button.removeClass('icon_inactive');
@@ -511,7 +518,9 @@ function App(content){
 				
 					//split unwanted whitespace and newlines in the points
 				
-					slide_contents[i].replace(/^(?:\s*\n)*|(?:\s*\n)*$/g, '');
+					//slide_contents[i].replace(/^(?:\s*\n)*|(?:\s*\n)*$/g, '');
+					
+					slide_contents[i] = $.trim(slide_contents[i]);
 					
 					//console.log(slide_contents[i]);
 					
@@ -567,7 +576,7 @@ function App(content){
 						points[curr_point].attr("id", 'point_'+curr_point);
 						points[curr_point].addClass('slide_bullet_point point');
 						points[curr_point].text(slide_contents[i]);
-						img = $('<img src = "icons/icon-bullets.png" class = "slide_point_icon" />');
+						img = $('<img src = "icons/icon-pencil.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
 						
 						//var ruler = $('<div class = "ruler"></div>');
@@ -592,7 +601,7 @@ function App(content){
 						points[curr_point].attr("id", 'point_'+curr_point);
 						points[curr_point].addClass('slide_normal_point point');
 						points[curr_point].text(slide_contents[i]);
-						img = $('<img src = "icons/icon-snowflake.png" class = "slide_point_icon" />');
+						img = $('<img src = "icons/icon-dislikes.png" class = "slide_point_icon" />');
 						points[curr_point].prepend(img);
 						
 						//var ruler = $('<div class = "ruler"></div>');
@@ -795,6 +804,8 @@ function handle_mm_drop(evt){
 	
 		if(type.match(v_type) || type.match(a_type)){
 			
+			mm_reset.click();
+			
 			if(type.match(v_type)){
 				
 				//it is a video file
@@ -807,7 +818,7 @@ function handle_mm_drop(evt){
 				a_icon.hide(); v_icon.show();
 				mm_reset.show();
 				
-				name.text(file_name + " [video file]");
+				name.text(file_name);
 				
 				window.URL.revokeObjectURL(obj_url);	
 				
@@ -823,7 +834,7 @@ function handle_mm_drop(evt){
 				v_icon.hide(); a_icon.show();
 				mm_reset.show();
 				
-				name.text(file_name + " [audio file]");
+				name.text(file_name);
 				
 				window.URL.revokeObjectURL(obj_url);
 			
@@ -885,7 +896,7 @@ function handle_mm(evt){
 				a_icon.hide(); v_icon.show();
 				mm_reset.show();
 				
-				name.text(file_name + " [video file]");
+				name.text(file_name);
 				
 				window.URL.revokeObjectURL(obj_url);	
 				
@@ -903,7 +914,7 @@ function handle_mm(evt){
 				v_icon.hide(); a_icon.show();
 				mm_reset.show();
 				
-				name.text(file_name + " [audio file]");
+				name.text(file_name);
 				
 				window.URL.revokeObjectURL(obj_url);
 			
@@ -1178,6 +1189,8 @@ $(document).ready(function(){
 	var mm_close = $('#mm_close');
 	var mm_error_div = $('#mm_error_div');
 	var mm_e_close = $('#mm_error_close');
+	var mm_alert = $('#mm_error'); 
+	
 	var mm_name = $('#mm_name');
 	
 	var v_icon = $('#video_type');
@@ -1254,6 +1267,7 @@ $(document).ready(function(){
 		a_icon.hide(); v_icon.hide();
 		mm_name.text("");
 		mm_reset.hide();
+		mm_error_div.hide();
 	});
 	
 	mm_e_close.click(function(){
@@ -1659,7 +1673,7 @@ $(document).ready(function(){
 	
 	function check_file_api(){
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
-				tdz.html("Drag and Drop your text file here or browse file from below . . ");
+				tdz.html("Drag and Drop your plain text (*.txt) file here or browse file from below . . ");
 		} else {
 		  		tdz.html("Drag and Drop not supported. Select file from below . . ");
 		}

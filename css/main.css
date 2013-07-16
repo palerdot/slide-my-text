@@ -107,6 +107,7 @@ html, body {
 				width: auto;
 				height: auto;
 				margin: 0 10px;
+				padding: 2px;
 				background-color: white;
 			}
 		
@@ -165,8 +166,8 @@ html, body {
 			top: 20%;
 			left: 22%;
 			height: 65%;
-			width: 55%;
-			border: thin solid red;
+			width: 50%;
+			border: thin solid #333333;
 			display: none;
 		}
 	
@@ -185,45 +186,42 @@ html, body {
 				-moz-border-radius: 6px;
 					border-radius: 6px;
 				
-				 background-color: yellow;	
+				 background-color: #0066FF;	
 			}
 			
 			.stop_icon{
 				background-image: url("../icons/icon-stop.png");
 				background-position: 11px 11px;
 				background-repeat: no-repeat;
-				background-color: red;
+				background-color: #FF0000;
 			}
 			
-			.pause_icon{
-				background-image: url("../icons/icon-pause.png");
-				background-position: 12px 9px;
-				background-repeat: no-repeat;
-				background-color: yellow;
-			}
-			
-			.play_icon{
-				background-image: url("../icons/icon-play.png");
-				background-position: 12px 8px;
-				background-repeat: no-repeat;
-				background-color: yellow;
-			}
+				.stop_icon:hover{
+					box-shadow: 0 0 15px 5px #FF0000;
+				}
 			
 			.first_slide_icon{
 				background-image: url("../icons/icon-rewind.png");
 				background-position: 5px 8px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #CC33FF;
+				
 			}
+			
+				.first_slide_icon:hover{
+					box-shadow: 0 0 15px 5px #CC33FF;
+				}
 			
 			.prev_slide_icon{
 				background-image: url("../icons/icon-left-arrow.png");
 				background-position: 6px 8px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #00FFFF;
 			}
 			
-				
+				.prev_slide_icon:hover{
+					box-shadow: 0 0 15px 5px #00FFFF;
+				}	
 			
 			.keynote_icon{
 				background-image: url("../icons/icon-keynote.png");
@@ -236,57 +234,85 @@ html, body {
 					background-image: url("../icons/icon-keynote.png");
 					background-position: 8px 2px;
 					background-repeat: no-repeat;
-					background-color: green;
+					background-color: #00ff00;
+				}
+				
+				.keynote_icon:hover{
+					box-shadow: 0 0 15px 5px #00ff00;
 				}
 			
 			.next_slide_icon{
 				background-image: url("../icons/icon-right-arrow.png");
 				background-position: 8px 8px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #00FFFF;
 			}
+			
+				.next_slide_icon:hover{
+					box-shadow: 0 0 15px 5px #00FFFF;
+				}
 			
 			.last_slide_icon{
 				background-image: url("../icons/icon-forward.png");
 				background-position: 8px 8px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #CC33FF;
 			}
+			
+				.last_slide_icon:hover{
+					box-shadow: 0 0 15px 5px #CC33FF;
+				}
 			
 			.fullscreen_icon{
 				background-image: url("../icons/icon-fullscreen.png");
 				background-position: 5px 5px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #FFFF00;
 			}
+			
+				.fullscreen_icon:hover{
+					box-shadow: 0 0 15px 5px #FFFF00;
+				}
 			
 			.mm_icon{
 				background-image: url("../icons/icon-film.png");
 				background-position: 6px 5px;
 				background-repeat: no-repeat;
-				background-color: blue;
+				background-color: #0066FF;
 			}
+			
+				.mm_icon:hover{
+					box-shadow: 0 0 15px 5px #0066FF;
+				}
 				
 			.music_icon{
 				background-image: url("../icons/icon-music.png");
 				background-position: 6px 5px;
 				background-repeat: no-repeat;
-				background-color: blue;
+				background-color: #0066FF;
 			}
 			
 			.slide_list_icon{
 				background-image: url("../icons/icon-show-thumbnails-with-lines.png");
 				background-position: 5px 10px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #0066FF;
 			}
+			
+				.slide_list_icon:hover{
+					box-shadow: 0 0 15px 5px #0066FF;
+				}
 			
 			.image_list_icon{
 				background-image: url("../icons/icon-picture.png");
 				background-position: 5px 7px;
 				background-repeat: no-repeat;
-				background-color: yellow;
+				background-color: #ff9933;
 			}
+			
+				.image_list_icon:hover{
+					box-shadow: 0 0 15px 5px #ff9933;
+				}
 			
 				.icon_inactive{
 					background-color: #dedede;
@@ -301,7 +327,7 @@ html, body {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #000F26;
+		background-color: black;
 		opacity: 1;
 		z-index: 5001;
 		display: none;
@@ -360,6 +386,8 @@ html, body {
 				-webkit-border-radius: 2px;
 				-moz-border-radius: 2px;
 					border-radius: 2px;
+					
+				cursor: pointer;
 				
 			}
 			
@@ -497,9 +525,13 @@ html, body {
 		}
 		
 		.active{
-			background-color: green;
+			background-color: #0066FF;
 			cursor: pointer;
 		}
+		
+			.active:hover{
+				box-shadow: 0 0 15px 5px #0066FF;
+			}
 		
 		.inactive{
 			background-color: #dedede;
@@ -514,7 +546,7 @@ html, body {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: #000F26;
+			background-color: black;
 			opacity: 1;
 			z-index: 5001;
 			display: none;
@@ -557,6 +589,20 @@ html, body {
 				width: 50%;
 				height: 60%;
 				border: thick dotted blue;
+				
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+					border-radius: 6px;
+				
+				  outline: none;
+				  
+				
+				  -webkit-background-clip: padding-box;
+					-moz-background-clip: padding-box;
+						background-clip: padding-box;
+						
+				box-shadow: 0 0 15px 5px #0066FF;
+				
 			}
 			
 			#mm_add_file{
@@ -646,6 +692,10 @@ html, body {
 			-webkit-border-radius: 6px;
 			-moz-border-radius: 6px;
 				border-radius: 6px;
+		}
+		
+		.themes:hover{
+			box-shadow: 0 0 15px 5px #0066FF;
 		}
 		
 	
@@ -811,10 +861,33 @@ html, body {
 				width: 60%;
 				height: 50%;
 				overflow: hidden;
-				border: 7px dotted grey;
-				text-align: center;
+
 				padding: 0;
-				background-color: #dedede;
+				
+				border: 7px dotted #00FF00;
+				background-color: #A6FFA6;
+				
+				
+				-webkit-box-shadow: 0 0 1em 0.5em #00FF00;
+				-moz-box-shadow: 0 0 1em 0.5em #00FF00;
+					box-shadow: 0 0 1em 0.5em #00FF00;
+			
+	
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+					border-radius: 6px;
+				
+				  outline: none;
+				  
+				
+				  -webkit-background-clip: padding-box;
+					-moz-background-clip: padding-box;
+						background-clip: padding-box;
+				
+				
+				opacity: 1;
+				text-align: center;
+				
 			}
 			
 				#text_file_drop_message{
@@ -842,15 +915,15 @@ html, body {
 			
 				.file_select_icon{
 					display: inline;
-					width: 250px;
-					height: 25px;
+					width: 75%;
+					height: 25%;
 					background-image: url("../icons/icon-file.png");
 					background-repeat: no-repeat;
-					background-position: 55px 4px;
+					background-position: 25% 25%;
 					border: thin solid #333333;
 					cursor: pointer;
 					border-radius: 4px;
-					background-color: rgba(12, 123, 123, 0.7);
+					background-color: rgba(0, 255, 0, 1);
 				}
 			
 			#text_file_info_area{
@@ -915,7 +988,28 @@ html, body {
 				width: 60%;
 				height: 50%;
 				overflow: hidden;
-				border: thick dotted #333333;
+				border: thick dotted #FFCC00;
+				background-color: #FFEB99;
+				
+				
+				-webkit-box-shadow: 0 0 1em 0.5em #FFCC00;
+				-moz-box-shadow: 0 0 1em 0.5em #FFCC00;
+					box-shadow: 0 0 1em 0.5em #FFCC00;
+			
+	
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+					border-radius: 6px;
+				
+				  outline: none;
+				  
+				
+				  -webkit-background-clip: padding-box;
+					-moz-background-clip: padding-box;
+						background-clip: padding-box;
+				
+				
+				opacity: 1;
 				text-align: center;
 			}
 			
@@ -932,15 +1026,15 @@ html, body {
 			
 				.pics_select_icon{
 					display: inline;
-					width: 220px;
-					height: 25px;
+					width: 75%;
+					height: 25%;
 					background-image: url("../icons/icon-folder-plus.png");
 					background-repeat: no-repeat;
-					background-position: 35px 4px;
+					background-position: 15% 20%;
 					border: thin solid #333333;
 					cursor: pointer;
 					border-radius: 4px;
-					background-color: rgba(125, 45, 89, 0.7);
+					background-color: #FFCC00;
 				}
 			
 			#pics_file_info_area{
