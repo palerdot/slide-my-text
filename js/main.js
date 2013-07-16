@@ -11,7 +11,8 @@ var S = {
 	slider_out : true,
 	images : [],
 	total_images : 0,
-	curr_image : 0
+	curr_image : 0,
+	theme : 'c'
 
 };
 
@@ -551,7 +552,8 @@ function App(content){
 						
 						points[curr_point] = $('<div></div>');
 						points[curr_point].attr("id", 'point_'+curr_point);
-						points[curr_point].addClass('slide_highlight point');
+						var temp_class = 'point slide_highlight_'+S.theme;
+						points[curr_point].addClass(temp_class);
 						points[curr_point].text(slide_contents[i]);
 						
 						
@@ -576,7 +578,9 @@ function App(content){
 						points[curr_point].attr("id", 'point_'+curr_point);
 						points[curr_point].addClass('slide_bullet_point point');
 						points[curr_point].text(slide_contents[i]);
-						img = $('<img src = "icons/icon-pencil.png" class = "slide_point_icon" />');
+						img = $('<img src = "icons/icon-pencil.png" />');
+						var temp_class = 'slide_point_icon_'+S.theme;
+						img.addClass(temp_class);
 						points[curr_point].prepend(img);
 						
 						//var ruler = $('<div class = "ruler"></div>');
@@ -601,7 +605,9 @@ function App(content){
 						points[curr_point].attr("id", 'point_'+curr_point);
 						points[curr_point].addClass('slide_normal_point point');
 						points[curr_point].text(slide_contents[i]);
-						img = $('<img src = "icons/icon-dislikes.png" class = "slide_point_icon" />');
+						img = $('<img src = "icons/icon-dislikes.png" />');
+						var temp_class = 'slide_point_icon_'+S.theme;
+						img.addClass(temp_class);
 						points[curr_point].prepend(img);
 						
 						//var ruler = $('<div class = "ruler"></div>');
@@ -1233,6 +1239,7 @@ $(document).ready(function(){
 	
 	var theme_s = $('#theme_sunny');
 	var theme_c = $('#theme_cloudy');
+	var theme_g = $('#theme_green');
 	var theme_d = $('#theme_dark');
 	
 	var themes = $('#theme_div .themes');
@@ -1454,11 +1461,11 @@ $(document).ready(function(){
 	
 		if(S.keynote_mode){
 			S.keynote_mode = false;
-			kn.attr("title", "keynote mode disabled");
+			kn.attr("title", "presentation mode disabled");
 			kn.removeClass('keynote_active');
 		}else{
 			S.keynote_mode = true;
-			kn.attr("title", "keynote mode activated");
+			kn.attr("title", "presentation mode activated");
 			kn.addClass('keynote_active');
 		}
 		
@@ -1562,6 +1569,8 @@ $(document).ready(function(){
 		
 			ss.fadeIn();
 			
+			//c_pane.show().delay('2000').fadeOut();
+			
 				if(S.total_images == 0){
 					i_list_button.addClass("icon_inactive");
 				}else
@@ -1634,16 +1643,27 @@ $(document).ready(function(){
 	
 	
 	theme_s.click(function(){
+		S.theme = 's';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
 	});
 	
 	theme_c.click(function(){
+		S.theme = 'c';
+		themes.removeClass('theme_selected');
+		$(this).addClass('theme_selected');
+		//ss.css("background-color", "red");
+		//ss.css("color", "white");
+	});
+	
+	theme_g.click(function(){
+		S.theme = 'g';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
 	});
 	
 	theme_d.click(function(){
+		S.theme = 'd';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
 	});

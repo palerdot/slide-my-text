@@ -96,7 +96,6 @@ html, body {
 			height: auto;
 			overflow: hidden;
 			padding: 10px 5px;
-			border: thin solid grey;
 			line-height: 40px;
 			font-size: 20px;
 			margin: 5px 0;
@@ -110,6 +109,15 @@ html, body {
 				padding: 2px;
 				background-color: white;
 			}
+			
+			.slide_point_icon_c{
+				display: inline-block;
+				width: auto;
+				height: auto;
+				margin: 0 10px;
+				padding: 2px;
+				background-color: #F2F7FF;
+			}
 		
 		.slide_bullet_point{
 			position: relative;
@@ -118,7 +126,6 @@ html, body {
 			height: auto;
 			overflow: hidden;
 			padding: 10px 5px;
-			border: thin solid grey;
 			line-height: 40px;
 			font-size: 20px;
 			margin: 5px 0;
@@ -131,7 +138,6 @@ html, body {
 			height: auto;
 			overflow: hidden;
 			padding: 20px;
-			border: thin solid grey;
 			border-radius: 15px;
 			line-height: 40px;
 			font-size: 20px;
@@ -141,14 +147,26 @@ html, body {
 			text-align: center;
 		}
 		
+		.slide_highlight_c{
+			position: relative;
+			left: 10%;
+			width: 80%;
+			height: auto;
+			overflow: hidden;
+			padding: 20px;
+			border-radius: 15px;
+			line-height: 40px;
+			font-size: 20px;
+			margin: 35px 0;
+			background-color: #F2F7FF;
+			color: black;
+			text-align: center;
+		}
+		
 		.point{
 			margin: 10px 0;
 		}
 		
-		.ruler{
-			height: 25px;
-			border: thin solid green;
-		}
 	
 	#slide_control_holder{
 		position: absolute;
@@ -162,13 +180,11 @@ html, body {
 	}
 	
 		#control_pane{
-			position: relative;
+			position: absolute;
 			top: 20%;
-			left: 22%;
-			height: 65%;
-			width: 50%;
-			border: thin solid #333333;
-			display: none;
+			left: 30%;
+			height: auto;
+			width: auto;
 		}
 	
 		
@@ -307,11 +323,11 @@ html, body {
 				background-image: url("../icons/icon-picture.png");
 				background-position: 5px 7px;
 				background-repeat: no-repeat;
-				background-color: #ff9933;
+				background-color: #FFCC00;
 			}
 			
 				.image_list_icon:hover{
-					box-shadow: 0 0 15px 5px #ff9933;
+					box-shadow: 0 0 15px 5px #FFCC00;
 				}
 			
 				.icon_inactive{
@@ -721,6 +737,16 @@ html, body {
 		 background-color: #0066FF; 
 	}
 	
+	.green{
+		
+		border: thin solid #333333;
+		background-image: url("../icons/icon-leaf.png");
+		background-position: 4px 8px;
+		background-repeat: no-repeat;
+		     
+		 background-color: #0066FF; 
+	}
+	
 	.dark{
 		
 		border: thin solid #333333;
@@ -925,6 +951,10 @@ html, body {
 					border-radius: 4px;
 					background-color: rgba(0, 255, 0, 1);
 				}
+				
+					.file_select_icon:hover{
+						background-color: #A6FFA6;
+					}
 			
 			#text_file_info_area{
 				position : absolute;
@@ -1036,6 +1066,10 @@ html, body {
 					border-radius: 4px;
 					background-color: #FFCC00;
 				}
+				
+					.pics_select_icon:hover{
+						background-color: #FFEB99;
+					}
 			
 			#pics_file_info_area{
 				position : absolute;
