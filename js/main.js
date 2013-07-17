@@ -547,10 +547,12 @@ function App(content){
 						slide_list_body.append(slide_list);
 					}
 					
-					if(slide_contents[i].match(/^\s*-{2}\s*(.*)$/)){
+
+					
+					if(slide_contents[i].match(/^\s*-{2}\s*([\S\s]*)$/)){
 					
 						
-						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{2}\s*(.*)$/)[1]);
+						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{2}\s*([\S\s]*)$/)[1]);
 						
 						points[curr_point] = $('<div></div>');
 						points[curr_point].attr("id", 'point_'+curr_point);
@@ -563,9 +565,9 @@ function App(content){
 						
 						continue;
 						
-					}else if(slide_contents[i].match(/^\s*-{1}\s*(.*)$/)){
+					}else if(slide_contents[i].match(/^\s*-{1}\s*([\S\s]*)$/)){
 					
-						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{1}\s*(.*)$/)[1]);
+						slide_contents[i] = $.trim(slide_contents[i].match(/^\s*-{1}\s*([\S\s]*)$/)[1]);
 						
 						points[curr_point] = $('<div></div>');
 						points[curr_point].attr("id", 'point_'+curr_point);
