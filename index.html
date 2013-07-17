@@ -224,7 +224,7 @@
 							<span class = "intro_modal_text"> Have a look at the </span>
 						</div>
 						<div class = "align-center intro_body_line">
-							<button class = "btn btn-large btn-primary"> How-To Guide </button>
+							<button class = "btn btn-large btn-primary" id = "show_guide"> How-To Guide </button>
 						</div>
 					</div>
 					
@@ -247,6 +247,8 @@
 		
 		<!-- END: end of intro overlay and modal -->	
 		
+		<!-- START: start of show_plain_text_div -->	
+		
 		<div id = "show_plain_text">
 		
 			<div class="modal-header">
@@ -261,7 +263,142 @@
 			</div>
 			
 		</div>
+		
+		<!-- END: end of show_plain_text_div -->
+		
+		<!-- START: start of how to guide -->
+		
+		<div id = "how_to_guide">
+		
+			<div class="modal-header">
+				    <button type="button" class="close" id = "guide_close">&times;</button>
+				    <h3 id=""> How-To guide </h3>
+			</div>
+			
+			<div class="guide_body">
+<span class = "bold">Slide My Text !</span> allows to you create interactive slide presentations from plain text files. Plain text files are files with extensions as '.txt' and MIME type 'text/plain'. Since plain text files are ubiquitous and light weight to deal with across different OS platforms, one can just type in their plain text files and drop into this app in the browser. The text file content will be converted into interactive slide presentation with a lot of cool features including image slide show and multimedia file playback during presentation.
+<span class = "h_line"></span>
+<div class = "gb_heading">Overview:</div>
+This section gives an overview of functionalities of this app. Detailed explanation is in the following section.
+
+Slide My Text ! allows you to do the following by simple formatting of your plain text files. 
+	- create new slides
+	- Add titles for the slides (optional)
+	- create 3 types of slide points (normal point, bullet point, highlight point)
+	
+The resulting slide has the following functionalites
+	- has a <span class = "bold">presentation mode</span> which allows you to step through each slide point during the presentation. This mode can be switched on or off at any time during the presentation. 
+	- abilities to jump to any slide instantly using a slide switching window. Just click on a slide title to switch to the corresponding slide.
+	- ability to show image slide shows (depends on the browser for image support)
+	- ability to play multimedia files (depends on the browser for the types of file it can play)
+	- full screen mode
+<span class = "h_line"></span>	
+<div class = "gb_heading">Formatting:</div>	
+Slide My Text ! uses lightweight formatting to create slides from text files.
+
+A new slide is created by drawing a new line with 4 or more * (asterisks) or - (hyphens), like this:
+*******************
+That's it ! a new slide is now created. Whatever is typed after this line is a part of a new slide. One does not have to be precise about the number of asterisks or hyphens. You can draw as long as you like. It just have to be 4 or more. Mixing of asterisks and hyphens are also allowed as long as total is more than 4.	
+
+One or more empty new lines creates a new slide point. 
+
+<div class = "tiny_ht">Wrapping 
+one long line 
+into multiple lines 
+with newlines like this, 
+will not create new points. It
+will be a part of the same slide point. 
+This is for convenience purposes
+as people like to format a 
+long line by breaking into small pieces.</div>
+
+One or more empty new lines like this creates a new point. It is important to note that only empty new lines mark the beginning of a new point.
+	
+Again one can format the text file with as much empty new lines as one likes. It just 
+have to be more than one empty new line.  
+<span class = "h_line"></span>
+<div class = "gb_heading">Slide titles:</div>
+You can also create slide titles by typing the title in the <span class = "bold">first line of the slide within asterisks.</span> For example:
+
+-------------------------------
+
+	* new slide title *
+
+Now a new slide is created with a title of 'new slide title'
+
+Only the first line of the slide within asterisks is considered for slide titles. Doing the same in other lines will
+be displayed as it is.
+<span class = "h_line"></span>
+<div class = "gb_heading">Bullet and Highlight points:</div>
+A slide point can also be formatted in two other ways: as bullet points, as highlight points. 
+
+	- Bullet point is created by adding a - (hyphen) at the start of the point like this line. One can have one or more spaces after the hyphen as they like. Bullet points cannot be nested. That is, there is only one level of nesting in the whole slide. 
+	
+	-- Highlight point is created by adding  -- two consecutive hyphens  at the start of the point like this line. One can have one or more spaces after the hyphens as they like. 
+<span class = "h_line"></span>
+<div class = "gb_heading">Being liberal with white spaces and new lines:</div>
+One can be liberal with their white spaces and newlines in their text files. For example
+			**************************************
+				*             new slide !         *
+			this still marks the beginning of a new slide with the title 'new slide !' even though there are multiple spaces infront of the line and within the title string. 
+
+			-               slide points can have any number of spaces before them. It will still be a new slide point. For example, this will still be a bullet point even though there are spaces between the hyphen and the point. Same applies for highlight points too.
+<span class = "h_line"></span>
+<div class = "gb_heading">Presentation mode:</div>
+This app has a presentation mode which allows you to step through each slides point by point. This setting can be turned on/off any time during the presentation. 
+
+One also have an option of starting the presentation in presentation mode. Starting in presentation mode shows the first slide title and the first point of the slide. Pressing next will display the next point. If the current slide has reached its end, next slide title and first point is shown. You can again step through each point for this new slide, and so on. (Showing the first point along with slide title during the presentation mode is because since slide titles are optionally added, this makes sure that atleast something is shown instead of a blank screen during slide transition.)
+
+If the presentation mode is turned off entire slide content is shown. Pressing next moves to next slide and shows the next slide contents fully. Switching off presentation mode during halfway of the present slide will reveal the remaining points. To show the current slide again in presentation mode, switch on the presentation mode and click the corresponding slide title from the slide list section.			
+<span class = "h_line"></span>
+<div class = "gb_heading">Slide Controls:</div>
+Slide controls can be accessed by <span class = "bold">hovering over the mouse</span> to the bottom of the slide screen.
+
+Following controls are present in slide
+	 - <span class = "bold">fullscreen button:</span> allows you to toggle full screen
+	 - <span class = "bold">next button:</span> If presentation mode is on, clicking next will show the next point. Otherwise it shows the next slide. 
+	 - <span class = "bold">previous button:</span>  If presentation mode is on, clicking previous will show the title and first point of previous slide. Otherwise it will show the entire previous slide. 
+	 - <span class = "bold">first slide button:</span> If presentation mode is on, clicking this will show the title and first point of first slide. Otherwise it will show the entire first slide.
+	 - <span class = "bold">last slide button:</span>  If presentation mode is on, clicking this will show the title and first point of last slide. Otherwise it will show the entire last slide. 
+	 - <span class = "bold">presentation mode toggle:</span> Allows to switch on/off presentation mode during the slide presentation.
+	 - <span class = "bold">slide list button:</span> Shows a popup that contains buttons with titles of all slide. Clicking it will take you to the corresponding slide. If presentation mode is on 
+ clicking this will show the title and first point of the corresponding slide. Otherwise it will show the entire slide. Since slide titles are optional, 'No title' will be displayed if no slide title is present.
+	 - <span class = "bold">Image list button:</span> Image slide show button. Before creating the presentation one can choose the images to be shown during the presentation. Selected images can be viewed by clicking this button.
+	 - <span class = "bold">Media button:</span> Allows you to play the media files.
+	 - <span class = "bold">quit button:</span> Quits the slide show presentation.
+<span class = "h_line"></span>	 
+One has to be careful with formatting when external text is copied to text files. In such cases one can go through the copied text in the text file and insert necessary formatting manually as characters such as multiple spaces may be mistaken for new lines. 			
+			</div>
+		
+		</div>
+		
+		<!-- END: end of how to guide -->		
 	
 	</body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1227,6 +1227,10 @@ $(document).ready(function(){
 	
 	var themes = $('#theme_div .themes');
 	
+	var show_guide = $('#show_guide');
+	var guide = $('#how_to_guide');
+	var g_close = $('#guide_close');
+	
 	//end of variables
 	
 	// *****************************************************************
@@ -1240,6 +1244,14 @@ $(document).ready(function(){
 	// *****************************************************************
 	
 	//start of event listeners
+	
+	g_close.click(function(){
+		guide.fadeOut('medium');
+	});
+	
+	show_guide.click(function(){
+		guide.fadeIn();
+	});
 	
 	mb.click(function(){
 		mo.fadeIn();
@@ -1771,7 +1783,7 @@ $(document).ready(function(){
 			
 				ss.css("background-color", "#A6FFA6");
 				point.css("color", "#003300");
-				slide_hl.css("background-color", "#8B4513");
+				slide_hl.css("background-color", "#006600");
 				slide_hl.css("color", "#A6FFA6");
 				slide_pi.css("background-color", "#A6FFA6");
 				s_title.css("color", "#003300");

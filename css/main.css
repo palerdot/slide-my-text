@@ -1159,6 +1159,36 @@ html, body {
 
 }
 
+#how_to_guide{
+
+	  position: fixed;
+	  top: 7%;
+	  left: 14%;
+	  
+	  width: 71%;
+	  height: 89%;
+	  background-color: rgba(255, 255, 255, 1);
+	  border: 1px solid #999;
+	  border: 1px solid rgba(0, 0, 0, 0.3);
+	  *border: 1px solid #999;
+	  -webkit-border-radius: 19px;
+		-moz-border-radius: 19px;
+		     border-radius: 19px;
+	  outline: none;
+	  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+		     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	  -webkit-background-clip: padding-box;
+		-moz-background-clip: padding-box;
+		     background-clip: padding-box;    
+	   z-index: 501;
+	   opacity: 1;
+	   
+	   display: none;
+	   overflow: hidden;
+
+}
+
 
 .intro_overlay{
 
@@ -1306,6 +1336,37 @@ button.close {
 		height: 375px;
 		overflow-y: auto;
 	}
+	
+	.guide_body{
+		height: 500px;
+		font-size: 18px;
+		line-height: 33px;
+		vertical-align: baseline;
+		padding: 0 30px;
+		overflow-y: auto;
+		border-bottom: 1px solid #eee;
+		white-space: pre-wrap;
+	}
+	
+		.tiny_ht{
+			line-height: 22px;
+		}
+	
+		.gb_heading{
+			font-size: 22px;
+			font-weight: bold;
+		}
+		
+		.h_line{
+			display: inline-block;
+			width: 90%;
+			height: auto;
+			border-bottom: 1px solid #eee;
+		}
+		
+		.bold{
+			font-weight: bold;
+		}
 
 .modal-footer {
   padding: 14px 15px 15px;
