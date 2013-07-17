@@ -91,6 +91,11 @@ html, body {
 		color: white;
 	}
 	
+	
+		.point{
+			margin: 10px 0;
+		}
+	
 		.slide_normal_point{
 			width: 97%;
 			height: auto;
@@ -139,9 +144,6 @@ html, body {
 			text-align: center;
 		}
 		
-		.point{
-			margin: 10px 0;
-		}
 		
 	
 	#slide_control_holder{

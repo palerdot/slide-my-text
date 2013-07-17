@@ -75,6 +75,8 @@ function App(content){
 		//split the incoming text into slides
 		
 		slide_list_body.html('');
+		content_div.html('');
+		title_div.html('');
 	
 		temp_slides = t.split(slide_splitter);
 		
@@ -1146,6 +1148,8 @@ $(document).ready(function(){
 	
 	var ss = $('#slide_show_pane');
 	
+	var s_title = $('#slide_title_holder');
+	
 	var sch = $('#slide_control_holder');
 	var c_pane = $('#control_pane');
 	
@@ -1711,15 +1715,51 @@ $(document).ready(function(){
 		var slide_hl = $('#slide_content_holder .slide_highlight');
 		var slide_pi = $('#slide_content_holder .slide_point_icon');
 		
+		var point = $('#slide_content_holder .point');
+		
 		switch(color){
 		
 			case 'c':
 			
 				ss.css("background-color", "#000F26");
-				ss.css("color", "white");
+				point.css("color", "#F2F7FF");
 				slide_hl.css("background-color", "#F2F7FF");
 				slide_hl.css("color", "black");
 				slide_pi.css("background-color", "#F2F7FF");
+				s_title.css("color", "#F2F7FF");
+			
+			break;
+			
+			case 'g':
+			
+				ss.css("background-color", "#99FF99");
+				point.css("color", "#003300");
+				slide_hl.css("background-color", "#003300");
+				slide_hl.css("color", "#99FF99");
+				slide_pi.css("background-color", "#99FF99");
+				s_title.css("color", "#003300");
+			
+			break;
+			
+			case 's':
+			
+				ss.css("background-color", "#FFFF66");
+				point.css("color", "#663300");
+				slide_hl.css("background-color", "#663300");
+				slide_hl.css("color", "#FFFF66");
+				slide_pi.css("background-color", "#FFFF66");
+				s_title.css("color", "#663300");
+			
+			break;
+			
+			case 'd':
+			
+				ss.css("background-color", "black");
+				point.css("color", "#CC80E6");
+				slide_hl.css("background-color", "#CC80E6");
+				slide_hl.css("color", "black");
+				slide_pi.css("background-color", "#CC80E6");
+				s_title.css("color", "#CC80E6");
 			
 			break;
 			
