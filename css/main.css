@@ -955,15 +955,28 @@ html, body {
 			
 			#text_file_options_area{
 				position : absolute;
-				top: 90%;
+				top: 89%;
 				left: 0;
 				width: 100%;
 				text-align: center;
-				height: 8%;
+				height: 10%;
 				border: thin solid grey;
 				overflow: hidden;
 				text-align: center;
 			}
+			
+				#text_file_options_area span{
+					display: inline-block;
+					margin: 3px;
+					vertical-align: middle;
+					font-weight: bold;
+				}
+				
+					#pmode_status{
+						font-size: 16px;
+					}
+					
+						
 	
 		#pics_drop_pane{
 			float: right;
@@ -1020,6 +1033,18 @@ html, body {
 				opacity: 1;
 				text-align: center;
 			}
+			
+				#pics_file_drop_message{
+					display: inline-block;
+					position: absolute;
+					top: 20%;
+					left: 15%;
+					width: 75%;
+					height: 55%;
+					line-height: 2em;
+					font-size: 1.2em;
+					text-align: center;
+				}
 			
 			#pics_file_select_area{
 				position: absolute;

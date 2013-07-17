@@ -47,7 +47,11 @@
 					
 					<div id = "text_file_info_area"><span id = "file_name"> No text file </span> added</div>
 					
-					<div id = "text_file_options_area"><button class = "btn btn-primary">Start in presentation mode</button></div>
+					<div id = "text_file_options_area">
+						<span id = "pmode_select" class = "control_icon keynote_icon"></span>
+						<span>Presentation mode :</span>
+						<span id = "pmode_status">Off</span>
+					</div>
 					
 				</div>
 				<div id = "pics_drop_pane">
@@ -56,7 +60,7 @@
 						<span id = "no_image_alert" class = "alert-yellow">No images added</span>
 					</div>
 					
-					<div id = "pics_file_drop_area"></div>
+					<div id = "pics_file_drop_area"> <span id = "pics_file_drop_message"></span> </div>
 					
 					<div id = "pics_file_select_area">
 						<span class = "pics_select_icon browse_text" id = "images_select">Add image(s)</span>
@@ -95,9 +99,9 @@
 					<span class = "control_icon fullscreen_icon" title = "toggle full screen" id = "fullscreen_button"></span>
 					<span class = "control_icon stop_icon" title = "quit slide show" id = "stop_button"></span>
 					<span class = "control_icon first_slide_icon" title = "show first slide" id = "show_first_button"></span>
-					<span class = "control_icon prev_slide_icon" title = "show previous slide" id = "prev_button"></span>
+					<span class = "control_icon prev_slide_icon" title = "show previous" id = "prev_button"></span>
 					<span class = "control_icon keynote_icon" title = "presentation mode inactive" id = "keynote_button"></span>
-					<span class = "control_icon next_slide_icon" title = "show next slide" id = "next_button"></span>
+					<span class = "control_icon next_slide_icon" title = "show next" id = "next_button"></span>
 					<span class = "control_icon last_slide_icon" title = "show last slide" id = "show_last_button"></span>
 					<span class = "control_icon slide_list_icon" title = "show slide list" id = "slide_list_button"></span>
 					<span class = "control_icon image_list_icon" title = "show images" id = "show_images_button"></span>
@@ -141,9 +145,9 @@
 		
 			<button id = "mm_close" class = "image_close">&times;</button>
 			<div id = "mm_name"></div>
-			<div id = "mm_filetype_button" title = "file type">
-				<div id = "video_type" class = "control_icon mm_icon"></div>
-				<div id = "audio_type" class = "control_icon music_icon"></div>
+			<div id = "mm_filetype_button">
+				<div id = "video_type" class = "control_icon mm_icon" title = "video file"></div>
+				<div id = "audio_type" class = "control_icon music_icon" title = "audio file"></div>
 			</div>
 			
 			<div id = "mm_drag_zone">

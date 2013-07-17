@@ -1132,7 +1132,7 @@ $(document).ready(function(){
 	var i_drop_zone = document.getElementById("pics_file_drop_area");
 	var mm_drop_zone = document.getElementById("mm_drag_zone");
 	
-	var tdz = $("#text_file_drop_message");
+	var tdz = $("#text_file_drop_message");  var pdz = $("#pics_file_drop_message");
 	
 	var io = $('#intro_overlay');
 	var im = $('#intro_modal');
@@ -1154,6 +1154,9 @@ $(document).ready(function(){
 	
 	var sch = $('#slide_control_holder');
 	var c_pane = $('#control_pane');
+	
+	var pmode = $('#pmode_select');
+	var pmode_status = $('#pmode_status');
 	
 	var kn = $('#keynote_button');
 	var fs = $('#fullscreen_button');
@@ -1443,13 +1446,43 @@ $(document).ready(function(){
 			S.keynote_mode = false;
 			kn.attr("title", "presentation mode disabled");
 			kn.removeClass('keynote_active');
+			
+			pmode_status.text("Off");
+			pmode.removeClass('keynote_active');
+			
 		}else{
 			S.keynote_mode = true;
 			kn.attr("title", "presentation mode activated");
 			kn.addClass('keynote_active');
+			
+			pmode_status.text("On");
+			pmode.addClass('keynote_active');
+			
 		}
 		
 		S.app.manage_keynote_mode(S.keynote_mode);
+	
+	});
+	
+	pmode.click(function(){
+	
+		if(S.keynote_mode){
+			S.keynote_mode = false;
+			pmode_status.text("Off");
+			pmode.removeClass('keynote_active');
+			
+			kn.attr("title", "presentation mode disabled");
+			kn.removeClass('keynote_active');
+			
+		}else{
+			S.keynote_mode = true;
+			pmode_status.text("On");
+			pmode.addClass('keynote_active');
+			
+			kn.attr("title", "presentation mode activated");
+			kn.addClass('keynote_active');
+			
+		}
 	
 	});
 	
@@ -1676,8 +1709,10 @@ $(document).ready(function(){
 	function check_file_api(){
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
 				tdz.html("Drag and Drop your plain text (*.txt) file here or browse file from below . . ");
+				pdz.html("Drag and Drop your image files here or browse files from below . . ");
 		} else {
-		  		tdz.html("Drag and Drop not supported. Select file from below . . ");
+		  		tdz.html("Your browser does not support file reading functionality required for this app ");
+		  		pdz.html("Your browser does not support file reading functionality required for this app ");
 		}
 	}
 	
@@ -1734,11 +1769,11 @@ $(document).ready(function(){
 			
 			case 'g':
 			
-				ss.css("background-color", "#99FF99");
+				ss.css("background-color", "#A6FFA6");
 				point.css("color", "#003300");
-				slide_hl.css("background-color", "#003300");
-				slide_hl.css("color", "#99FF99");
-				slide_pi.css("background-color", "#99FF99");
+				slide_hl.css("background-color", "#8B4513");
+				slide_hl.css("color", "#A6FFA6");
+				slide_pi.css("background-color", "#A6FFA6");
 				s_title.css("color", "#003300");
 			
 			break;
@@ -1757,11 +1792,11 @@ $(document).ready(function(){
 			case 'd':
 			
 				ss.css("background-color", "black");
-				point.css("color", "#CC80E6");
-				slide_hl.css("background-color", "#CC80E6");
-				slide_hl.css("color", "black");
-				slide_pi.css("background-color", "#CC80E6");
-				s_title.css("color", "#CC80E6");
+				point.css("color", "#DEDEDE");
+				slide_hl.css("background-color", "#545454");
+				slide_hl.css("color", "white");
+				slide_pi.css("background-color", "#dedede");
+				s_title.css("color", "#DEDEDE");
 			
 			break;
 			
