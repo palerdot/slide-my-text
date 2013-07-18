@@ -1510,6 +1510,38 @@ button.close {
 }
 
 
+.btn-orange{
+	  color: #000000;
+	  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	  background-color: #006dcc;
+	  *background-color: #0044cc;
+	  background-image: -moz-linear-gradient(top, #FFCC00, #FF9900);
+	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFCC00), to(#FF9900));
+	  background-image: -webkit-linear-gradient(top, #FFCC00, #FF9900);
+	  background-image: -o-linear-gradient(top, #FFCC00, #FF9900);
+	  background-image: linear-gradient(to bottom, #FFCC00, #FF9900);
+	  background-repeat: repeat-x;
+	  border-color: #FF9900 #FF9900 #FF9900;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCC00', endColorstr='#FF9900', GradientType=0);
+	  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.btn-orange.disabled,
+.btn-orange[disabled] {
+  color: #000000;
+  background-color: #FF9900;
+  *background-color: #FF9900;
+}
+
+.btn-orange:active,
+.btn-orange.active {
+  background-color: #FF9900 \9;
+}
+
 .alert-yellow{
 	display: inline-block;
 	padding: 8px 20px;
