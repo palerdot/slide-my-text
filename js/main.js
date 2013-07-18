@@ -1138,13 +1138,9 @@ $(document).ready(function(){
 	var im = $('#intro_modal');
 	
 	var ic = $('#intro_close');
-	var ptc = $('#plain_text_close');
 	
 	var csmb = $('#create_slide_message_button');
 	var settings = $('#settings');
-	
-	var sptb = $('#show_plain_text_button');
-	var spt = $('#show_plain_text');
 	
 	var cs = $('#create_slide');
 	
@@ -1622,9 +1618,6 @@ $(document).ready(function(){
 	
 	});
 	
-	ptc.click(function(){
-		spt.fadeOut();
-	});
 	
 	csmb.click(function(){
 	
@@ -1639,11 +1632,6 @@ $(document).ready(function(){
 	
 	});
 	
-	sptb.click(function(){
-	
-		spt.fadeIn();	
-	
-	});
 	
 	sch.mouseenter(function(){
 		c_pane.fadeIn('fast');
