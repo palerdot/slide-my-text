@@ -906,6 +906,7 @@ html, body {
 					height: 55%;
 					line-height: 2em;
 					font-size: 1.2em;
+					font-weight: bold;
 					text-align: center;
 				}
 			
@@ -1042,6 +1043,7 @@ html, body {
 					height: 55%;
 					line-height: 2em;
 					font-size: 1.2em;
+					font-weight: bold;
 					text-align: center;
 				}
 			
@@ -1172,6 +1174,7 @@ html, body {
 	.intro_modal_text{
 		font-size: 18px;
 		font-weight: bold;
+		margin: 0 15px;
 	}
 
 	.intro_body_line{

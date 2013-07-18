@@ -1738,8 +1738,8 @@ $(document).ready(function(){
 	
 	function check_file_api(){
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
-				tdz.html("Drag and Drop your plain text (*.txt) file here or browse file from below . . ");
-				pdz.html("Drag and Drop your image files here or browse files from below . . ");
+				tdz.html("Drag and Drop your plain text (*.txt) file here or browse file from below");
+				pdz.html("Drag and Drop your image files here or browse files from below");
 		} else {
 		  		tdz.html("Your browser does not support file reading functionality required for this app ");
 		  		pdz.html("Your browser does not support file reading functionality required for this app ");
