@@ -70,7 +70,6 @@ html, body {
 		overflow-x: hidden;
 		overflow-y: hidden;
 		padding: 15px;
-		border: thin solid #333333;
 		color: white;
 		font-weight: bold;
 		font-size: 42px;
@@ -88,7 +87,6 @@ html, body {
 		padding: 25px;
 		overflow-y: auto;
 		font-size: 28px;
-		border: thin solid #333333;
 		color: white;
 	}
 	
@@ -154,7 +152,6 @@ html, body {
 		width: 96%;
 		height: 13%;
 		overflow: hidden;
-		border: thin solid #333333;
 		text-align: center;
 	}
 	
@@ -627,10 +624,10 @@ html, body {
 			#mm_error_div{
 				position: absolute;
 				top: 87%;
-				left: 24%;
-				width: 50%;
+				left: 34%;
+				width: 28%;
 				text-align: center;
-				font-size: 25px;
+				font-size: 18px;
 				display: none;
 			}
 
@@ -800,8 +797,6 @@ html, body {
 	overflow: hidden;
 	
 	background-color: #F2F7FF;
-	border: medium solid #0066FF;
-	
 	
 	-webkit-box-shadow: 0 0 2em 1em #0066FF;
 	-moz-box-shadow: 0 0 2em 1em #0066FF;
@@ -827,7 +822,6 @@ html, body {
 		left: 0;
 		width: 100%;
 		height: 85%;
-		border: thin solid green;
 	}
 	
 		#text_file_drop_pane{
@@ -837,8 +831,6 @@ html, body {
 			left: 0;
 			width: 55%;
 			height: 100%;
-			border-right: thin solid #0066FF;
-			border-bottom: thin solid #0066FF;
 		}
 		
 		#text_file, #image_files{
@@ -869,9 +861,8 @@ html, body {
 
 				padding: 0;
 				
-				border: 7px dotted #00FF00;
 				background-color: #A6FFA6;
-				
+				border: thick dotted #00ff00;
 				
 				-webkit-box-shadow: 0 0 1em 0.5em #00FF00;
 				-moz-box-shadow: 0 0 1em 0.5em #00FF00;
@@ -944,7 +935,6 @@ html, body {
 				height: 8%;
 				line-height: 40px;
 				vertical-align: baseline;
-				border: thin solid grey;
 				overflow: hidden;
 			}
 			
@@ -961,7 +951,6 @@ html, body {
 				width: 100%;
 				text-align: center;
 				height: 10%;
-				border: thin solid grey;
 				overflow: hidden;
 				text-align: center;
 			}
@@ -986,8 +975,6 @@ html, body {
 			left: 55%;
 			width: 45%;
 			height: 100%;
-			border-left: thin solid #0066FF;
-			border-bottom: thin solid #0066FF;
 		}
 		
 			#pics_file_alert_pane{
@@ -1083,7 +1070,6 @@ html, body {
 				text-align: center;
 				height: 8%;
 				line-height: 40px;
-				border: thin solid grey;
 				overflow: hidden;
 			}
 			
@@ -1100,7 +1086,6 @@ html, body {
 				width: 100%;
 				text-align: center;
 				height: 8%;
-				border: thin solid grey;
 				overflow: hidden;
 				text-align: center;
 			}
@@ -1111,7 +1096,6 @@ html, body {
 		left: 0;
 		width: 100%;
 		height: 15%;
-		border: thin solid green;
 		text-align: center;
 		padding: 15px 0;
 	}
