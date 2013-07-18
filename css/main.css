@@ -928,14 +928,19 @@ html, body {
 					background-image: url("../icons/icon-file.png");
 					background-repeat: no-repeat;
 					background-position: 25% 25%;
-					border: thin solid #333333;
+					border: thin solid #00E600;
 					cursor: pointer;
 					border-radius: 4px;
-					background-color: rgba(0, 255, 0, 1);
+					
+					color: #000000;
+					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+					background-color: #00ff00;
+					
+					border-color: #00E600;
 				}
 				
 					.file_select_icon:hover{
-						background-color: #A6FFA6;
+						background-color: #00E600;
 					}
 			
 			#text_file_info_area{
@@ -1065,14 +1070,19 @@ html, body {
 					background-image: url("../icons/icon-folder-plus.png");
 					background-repeat: no-repeat;
 					background-position: 15% 20%;
-					border: thin solid #333333;
+					border: thin solid #ff9900;
 					cursor: pointer;
 					border-radius: 4px;
 					background-color: #FFCC00;
+					
+					color: #000000;
+					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+					background-color: #FFCC00;
+					  
 				}
 				
 					.pics_select_icon:hover{
-						background-color: #FFEB99;
+						  background-color: #FFA800;
 					}
 			
 			#pics_file_info_area{
@@ -1479,8 +1489,7 @@ button.close {
 .btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #006dcc;
-  *background-color: #0044cc;
+  background-color:  #0044cc;
   background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
   background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
@@ -1513,8 +1522,8 @@ button.close {
 .btn-orange{
 	  color: #000000;
 	  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	  background-color: #006dcc;
-	  *background-color: #0044cc;
+	  background-color: #FF9900;
+	  *background-color: #FF9900;
 	  background-image: -moz-linear-gradient(top, #FFCC00, #FF9900);
 	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFCC00), to(#FF9900));
 	  background-image: -webkit-linear-gradient(top, #FFCC00, #FF9900);
@@ -1524,6 +1533,11 @@ button.close {
 	  border-color: #FF9900 #FF9900 #FF9900;
 	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCC00', endColorstr='#FF9900', GradientType=0);
 	  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-orange:active,
+.btn-orange.active {
+  background-color: #FF9900 \9;
 }
 
 .btn-orange:hover,
@@ -1537,10 +1551,7 @@ button.close {
   *background-color: #FF9900;
 }
 
-.btn-orange:active,
-.btn-orange.active {
-  background-color: #FF9900 \9;
-}
+
 
 .alert-yellow{
 	display: inline-block;
