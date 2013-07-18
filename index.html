@@ -24,8 +24,28 @@
 				<span id = "theme_cloudy" class = "themes cloudy" title = "cloudy theme"></span>
 				<span id = "theme_green" class = "themes green" title = "green theme"></span>
 				<span id = "theme_dark" class = "themes dark" title = "dark theme"></span>
-			<span id = "theme_icon" title = "theme preview"></span>
+			<span id = "theme_preview_button" title = "theme preview"></span>
 		</div>
+		
+		<!-- START: start of theme preview -->	
+		
+		<div id = "theme_preview" class = "modal fade">
+		
+			<div class="modal-header">
+				    <button type="button" class="close" id = "theme_preview_close">&times;</button>
+				    <h3>Current Theme : <span id = "theme_name"></span></h3>
+			</div>
+			
+			<div class = "modal-body theme_preview_body">
+				<img src = "imgs/theme-s.png" class = "preview_imgs" id = "theme_s"></img>
+				<img src = "imgs/theme-c.png" class = "preview_imgs" id = "theme_c"></img>
+				<img src = "imgs/theme-g.png" class = "preview_imgs" id = "theme_g"></img>
+				<img src = "imgs/theme-d.png" class = "preview_imgs" id = "theme_d"></img>
+			</div>
+		
+		</div>
+		
+		<!-- END: end of theme preview -->	
 		
 		<!-- START: start of file drop holder -->	
 		
@@ -195,12 +215,9 @@
 		
 		
 		
-	
 		<!-- START: start of intro overlay and modal -->	
 	
 		<div id = "intro_overlay" class = "intro_overlay"></div>
-		
-		
 		
 		<div id = "intro_modal" class = "modal fade">
 			

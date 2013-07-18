@@ -1213,15 +1213,23 @@ $(document).ready(function(){
 	
 	var slb = $('span.slide_list_button');
 	
-	var error_div = $('#error_msg');
-	var error_span = $('<span class = "alert-yellow"></span>');
-	
 	var theme_s = $('#theme_sunny');
 	var theme_c = $('#theme_cloudy');
 	var theme_g = $('#theme_green');
 	var theme_d = $('#theme_dark');
 	
+	var t_p_s = $('#theme_s');
+	var t_p_c = $('#theme_c');
+	var t_p_g = $('#theme_g');
+	var t_p_d = $('#theme_d');
+	
 	var themes = $('#theme_div .themes');
+	var theme_imgs = $('#theme_preview .preview_imgs');
+	var theme_name = $('#theme_name');
+	
+	var tp_btn = $('#theme_preview_button');
+	var t_p = $('#theme_preview');
+	var tp_close = $('#theme_preview_close');
 	
 	var show_guide = $('#show_guide');
 	var guide = $('#how_to_guide');
@@ -1663,24 +1671,46 @@ $(document).ready(function(){
 		S.theme = 's';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
+		theme_imgs.hide();
+		t_p_s.show();
+		theme_name.text("Sunny");
 	});
 	
 	theme_c.click(function(){
 		S.theme = 'c';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
+		theme_imgs.hide();
+		t_p_c.show();
+		theme_name.text("Cloudy");
 	});
 	
 	theme_g.click(function(){
 		S.theme = 'g';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
+		theme_imgs.hide();
+		t_p_g.show();
+		theme_name.text("Green");
 	});
 	
 	theme_d.click(function(){
 		S.theme = 'd';
 		themes.removeClass('theme_selected');
 		$(this).addClass('theme_selected');
+		theme_imgs.hide();
+		t_p_d.show();
+		theme_name.text("Dark");
+	});
+	
+	tp_btn.click(function(){
+		io.fadeIn();
+		t_p.fadeIn().addClass('in');
+	});
+	
+	tp_close.click(function(){
+		t_p.removeClass('in').fadeOut();
+		io.fadeOut();
 	});
 	
 	
