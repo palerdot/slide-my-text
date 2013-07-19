@@ -840,7 +840,7 @@ html, body {
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 55%;
+			width: 50%;
 			height: 100%;
 		}
 		
@@ -989,8 +989,8 @@ html, body {
 			float: right;
 			position: absolute;
 			top: 0;
-			left: 55%;
-			width: 45%;
+			left: 50%;
+			width: 50%;
 			height: 100%;
 		}
 		
