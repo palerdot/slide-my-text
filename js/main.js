@@ -148,8 +148,6 @@ function App(content){
 		
 		//initial display
 		//displays first slide
-		console.log(S.keynote_mode);
-		console.log('slide '+slide_no);
 		
 		var ts = '#slide_'+curr_slide;
 		
@@ -511,7 +509,7 @@ function App(content){
 				
 				slide_contents = content.split(slide_content_splitter);
 				
-				//console.log(slide_contents);
+				
 		
 		// **********************************************************************************
 		
@@ -525,7 +523,7 @@ function App(content){
 					
 					slide_contents[i] = $.trim(slide_contents[i]);
 					
-					//console.log(slide_contents[i]);
+					
 					
 					var img;
 					var content_span;
@@ -560,7 +558,7 @@ function App(content){
 						points[curr_point].text(slide_contents[i]);
 						
 						slide_data.append(points[curr_point]);
-						//console.log(points[curr_point]);
+						
 						curr_point++;
 						
 						continue;
@@ -578,7 +576,7 @@ function App(content){
 						points[curr_point].prepend(img);
 						
 						slide_data.append(points[curr_point]);
-						//console.log(points[curr_point]);
+						
 						curr_point++;
 						
 						continue;
@@ -596,7 +594,7 @@ function App(content){
 						points[curr_point].prepend(img);
 						
 						slide_data.append(points[curr_point]);
-						//console.log(points[curr_point]);
+						
 						curr_point++;
 						
 						continue;
@@ -1054,7 +1052,6 @@ function readBlob(file){
 			//if finished reading
 			if(evt.target.readyState == FileReader.DONE){
 				S.content = evt.target.result;
-				//console.log(S.content);
 			}
 		
 		};
