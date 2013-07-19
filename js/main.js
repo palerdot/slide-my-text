@@ -1025,7 +1025,7 @@ function copy_file_contents(evt){
 		fn.text(f.name);
 		t_alert_pane.hide();
 	}else{
-		t_alert.html('This is not a text file');
+		t_alert.html(f.name+' is not a text file');
 		t_alert_pane.show();
 	}
 	
@@ -1096,7 +1096,7 @@ function drop(e) {
 			t_alert_pane.hide();
 			error_div.html('');
 		}else{
-			t_alert.html('This is not a text file');
+			t_alert.html(f.name+' is not a text file');
 			fn.text("No text file");
 			t_alert_pane.show();
 		}
@@ -1595,6 +1595,8 @@ $(document).ready(function(){
 			S.app = new App(text_file_contents);
 			S.app.init();
 			S.app.display();
+			
+			t_alert_pane.hide();
 			
 			//apply theme
 			
