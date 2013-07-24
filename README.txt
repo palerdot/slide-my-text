@@ -42,7 +42,7 @@ One can be liberal with their white spaces and newlines in their text files whil
 
 Refer to the How-To guide section for a more detailed information on the app.
 
-github page:  http://github.com/palerdot/slide_my_text
+github page:  http://github.com/palerdot/slide-my-text
 
 ****************************************
 
