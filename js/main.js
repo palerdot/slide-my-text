@@ -1641,11 +1641,11 @@ $(document).ready(function(){
 	
 	
 	sch.mouseenter(function(){
-		c_pane.fadeIn('fast');
+		c_pane.stop(true, true).fadeIn('fast');
 	});
 	
 	sch.mouseleave(function(){
-		c_pane.fadeOut('slow');
+		c_pane.stop(true, true).fadeOut('slow');
 	});
 	
 	stop.click(function(){
