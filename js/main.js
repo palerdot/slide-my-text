@@ -1,3 +1,16 @@
+/*
+
+Slide My Text !
+by palerdot
+
+website: http://palerdot.in
+github: http://github.com/palerdot/
+contact: palerdot@gmail.com
+
+Released under GPLv3 license
+http://opensource.org/licenses/GPL-3.0
+
+*/
 
 //S => global object for the app
 
