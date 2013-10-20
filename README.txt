@@ -2,6 +2,9 @@
 			
 Slide presentations from plain text files ! Image slide shows and multimedia playback during presentation also supported.
 
+A live demo can be found at the following link
+http://palerdot.github.io/slide-my-text
+
 Slide My Text ! creates slide presentations in your browser from plain text files. You can also add images for slide show and 
 play multimedia files during the presentation.
 
