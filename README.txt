@@ -7,7 +7,7 @@ play multimedia files during the presentation.
 
 To create a new slide draw a new line with 4 or more * (asterisks) or - (hyphens), like this:
 
-*******************
+****
 
 	* About the app *
 
@@ -44,7 +44,7 @@ Refer to the How-To guide section for a more detailed information on the app.
 
 github page:  http://github.com/palerdot/slide-my-text
 
-****************************************
+****
 
 	* Try with this Read me text file *
 	
