@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
 
 Slide My Text !
 by palerdot
