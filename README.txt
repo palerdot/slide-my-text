@@ -42,7 +42,9 @@ One can be liberal with their white spaces and newlines in their text files whil
 
 Refer to the How-To guide section for a more detailed information on the app.
 
-github page:  http://github.com/palerdot/slide-my-text
+This project can also viewed at the following Mozilla Dev Derby page
+
+https://developer.mozilla.org/en-US/demos/detail/slide-my-text
 
 ****
 
