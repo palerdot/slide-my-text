@@ -55,4 +55,7 @@ https://developer.mozilla.org/en-US/demos/detail/slide-my-text
 	
 You can start exploring this app by adding this README.txt file to the app. 
 
+This app was first created for 2013 July Mozilla Dev Derby and won 3rd place.
+https://hacks.mozilla.org/2013/10/announcing-the-winners-of-the-july-2013-dev-derby/
+
 -- Have fun with Slide My Text !
